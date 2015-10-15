@@ -88,24 +88,24 @@
 	<script type="text/javascript">
 		var foodMap = document.getElementById('foodMap');
 		
-		window.document.onload = function(e){
-			var world = new World(200, 150, foodMap);
-			var simulator = new Simulator(world);
-			var visualizer = new WorldVisualizer(world, 800, 600);
-			var monitorEle = document.getElementById('statsMonitorDiv');
-			var statsMonitor = new StatsMonitor(world, monitorEle, 800);
-			var interactor = new Interactor(world, world.food);
 
-			statsMonitor.start({waitTime: 1000});
+		var world = new World(200, 150, foodMap);
+		var simulator = new Simulator(world);
+		var visualizer = new WorldVisualizer(world, 800, 600);
+		var monitorEle = document.getElementById('statsMonitorDiv');
+		var statsMonitor = new StatsMonitor(world, monitorEle, 800);
+		var interactor = new Interactor(world, world.food);
 
-			simulator.start({
-				waitTime: 10
-			});
+		statsMonitor.start({waitTime: 1000});
 
-			setTimeout(function () {
-				simulator.stop();
-			}, 2500000);
-		}
+		simulator.start({
+			waitTime: 10
+		});
+
+		setTimeout(function () {
+			simulator.stop();
+		}, 2500000);
+
 
 
 	</script>
