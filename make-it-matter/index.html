@@ -28,6 +28,7 @@
 	<!-- Libs -->
 	<script type="text/javascript" src="lib/phaser.min.js"></script>
 	<script type="text/javascript" src="lib/synaptic.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
 	<script type="text/javascript" src="js/Utils.js"></script>
@@ -86,25 +87,31 @@
 
 
 	<script type="text/javascript">
-		var foodMap = document.getElementById('foodMap');
-		
+		$('#foodMap').load(function(){
 
-		var world = new World(200, 150, foodMap);
-		var simulator = new Simulator(world);
-		var visualizer = new WorldVisualizer(world, 800, 600);
-		var monitorEle = document.getElementById('statsMonitorDiv');
-		var statsMonitor = new StatsMonitor(world, monitorEle, 800);
-		var interactor = new Interactor(world, world.food);
+			//This is ugly... see https://api.jquery.com/load-event/
+			setTimeout(function(){
+				var foodMap = document.getElementById('foodMap');
+				var world = new World(200, 150, foodMap);
+				var simulator = new Simulator(world);
+				var visualizer = new WorldVisualizer(world, 800, 600);
+				var monitorEle = document.getElementById('statsMonitorDiv');
+				var statsMonitor = new StatsMonitor(world, monitorEle, 800);
+				var interactor = new Interactor(world, world.food);
 
-		statsMonitor.start({waitTime: 1000});
+				statsMonitor.start({waitTime: 1000});
 
-		simulator.start({
-			waitTime: 10
+				simulator.start({
+					waitTime: 10
+				});
+
+				setTimeout(function () {
+					simulator.stop();
+				}, 2500000);
+			},500);
+
 		});
 
-		setTimeout(function () {
-			simulator.stop();
-		}, 2500000);
 
 
 
