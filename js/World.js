@@ -24,7 +24,7 @@ function World (width, height, foodImg) {
 	};
 	//this.foodSpawners.push(new FoodSpawner(this, 6, 6, smallBurstSpawner));
 	//this.foodSpawners.push(new FoodSpawner(this, width-6, 6, smallBurstSpawner));
-	this.foodSpawners.push(new FoodSpawner(this, width-30, 50, smallBurstSpawner));
+	//this.foodSpawners.push(new FoodSpawner(this, width-30, 50, smallBurstSpawner));
 /*
 	var fastOmniSpawner = {
 		width: width-6,
@@ -39,7 +39,13 @@ function World (width, height, foodImg) {
 	//this.antColonies.push(new AntColony(this, 1*width/4, height/2, 20));
 	//this.antColonies.push(new AntColony(this, 3*width/4, height/2, 20));
 
-	this.antColonies.push(new AntColony(this, width/2, height/2, 150));
+	var antColony = new AntColony(this, width/2, height/2, 150);
+	this.antColonies.push(antColony);
+
+	var ant = new Ant(this, antColony, width/2, height/2, 0);
+	ant.insideNest = true;
+	this.ants.push(ant);
+
 	//this.antColonies.push(new AntColony(this, 3*width/4, height/2, 200));
 
 
@@ -66,23 +72,19 @@ World.prototype.initGridData = function(foodImg) {
 	var thisWorld = this;
 
 	// from image
-
 	var canvas = document.createElement('canvas');
 	canvas.width = foodImg.width;
 	canvas.height = foodImg.height;
 	var mapCtx = canvas.getContext('2d');
 	mapCtx.drawImage(foodImg, 0, 0, foodImg.width, foodImg.height);
-	//var data = mapCtx.getImageData(0,0,foodImg.width,foodImg.height).data;
-	//console.log('---');
-	//console.log(JSON.stringify(data));
-	//console.log('---');
+	console.log(foodImg);
 
 	this.food = Utils.createGrid(w, h, function (i,j){
 		//if (Utils.insideRect(i, j, cx - 50, cy + 50, 5, 5) ||
 		//	Utils.insideRect(i, j, cx + 50, cy + 50, 5, 5)) {
 		if(mapCtx){
 			var data = mapCtx.getImageData(i,j,1,1).data;
-			return data[1] > 0 ? 15 : 0;
+			return data[1] > 0 ? 10 : 0;
 		}
 
 		return 0;
