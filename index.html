@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Simulation of Ant Colonies</title>
+
+    <!-- Bootstrap -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Theme -->
+    <link href="theme/theme.css" rel="stylesheet">
+
+	<!-- Libs -->
+	<script type="text/javascript" src="lib/phaser.min.js"></script>
+	<script type="text/javascript" src="lib/synaptic.min.js"></script>
+
+
+	<script type="text/javascript" src="js/Utils.js"></script>
+	<script type="text/javascript" src="js/Interact.js"></script>
+
+	<!-- Ant simulation stuff -->
+	<script type="text/javascript" src="js/Ant.js"></script>
+	<script type="text/javascript" src="js/AntQueen.js"></script>
+	<script type="text/javascript" src="js/AntColony.js"></script>
+	<script type="text/javascript" src="js/Enemy.js"></script>
+	<script type="text/javascript" src="js/MoveLogic.js"></script>
+	<script type="text/javascript" src="js/FoodSpawner.js"></script>
+	<script type="text/javascript" src="js/Brain.js"></script>
+	<script type="text/javascript" src="js/AntQueenBrain.js"></script>
+	<script type="text/javascript" src="js/Simulator.js"></script>
+	<script type="text/javascript" src="js/World.js"></script>
+	<script type="text/javascript" src="js/WorldVisualizer.js"></script>
+	<script type="text/javascript" src="js/StatsMonitor.js"></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+		<h3>Simulation of Ant Colonies</h3>
+		<div class="row">
+	    	<div id="canvas-id" class="col-md-9"></div>
+	        <div class="col-md-3">
+	        	<div id="control" >
+					<!-- value = 10 -> 1 update per wait -->
+					<input id="playCheckBox" type="checkbox" data-toggle="toggle" data-on="Play" data-off="Pause" checked>
+					<div id="simSpeedCtr">
+						<span>Simulation speed:</span>
+						<span id="updatesPerWait"></span>
+					</div>
+					<input type="range" id="slider" value="10">
+
+					<!-- Above or under ground -->
+					<input id="aboveGroundCheckBox" type="checkbox" data-toggle="toggle" data-on="Above ground" data-off="Under ground" name="aboveGround" data-width="150" checked> </br>
+
+					<!-- Pheromones -->
+					<input id="drawPheromonesCheckBox" type="checkbox" data-toggle="toggle" data-on="Show pheromones" data-off="Hide pheromones" name="drawPheromones" data-width="150" > </br>
+
+					<!-- Ants -->
+					<input id="drawAntsCheckBox" type="checkbox" data-toggle="toggle" data-on="Show ants" data-off="Hide ants" name="drawAnts" data-width="150" checked> </br>
+					<input id="drawDetailedCheckBox" type="checkbox" data-toggle="toggle" data-on="Detailed graphics" data-off="Simple graphics" name="drawDetailed" data-width="150" checked> </br>
+
+					<br>
+				</div>
+	        </div>
+        	<div id="statsMonitorDiv" class="col-md-3">
+		</div>
+    </div> <!-- /container -->
+
+    	<img src="assets/sustainability.png" style="display:none">
+	</div>
+
+
+	<script type="text/javascript">
+		var foodMap = new Image(200, 150);
+		foodMap.src = 'assets/sustainability.png';
+		
+
+		var world = new World(200, 150, foodMap);
+		var simulator = new Simulator(world);
+		var visualizer = new WorldVisualizer(world, 800, 600);
+		var monitorEle = document.getElementById('statsMonitorDiv');
+		var statsMonitor = new StatsMonitor(world, monitorEle, 800);
+		var interactor = new Interactor(world, world.food);
+
+		statsMonitor.start({waitTime: 1000});
+
+		simulator.start({
+			waitTime: 10
+		});
+
+		setTimeout(function () {
+			simulator.stop();
+		}, 2500000);
+	</script>
+
+  </body>
+</html>
