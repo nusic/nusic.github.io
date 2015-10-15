@@ -76,12 +76,8 @@ World.prototype.initGridData = function(foodImg) {
 	canvas.width = foodImg.width;
 	canvas.height = foodImg.height;
 	var mapCtx = canvas.getContext('2d');
-	console.log('mapCtx:', mapCtx);
 
 	mapCtx.drawImage(foodImg, 0, 0, foodImg.width, foodImg.height);
-
-	console.log('black pixel:', mapCtx.getImageData(0,0,1,1).data);
-	console.log('white pixel:', mapCtx.getImageData(15,40,1,1).data);
 
 	this.food = Utils.createGrid(w, h, function (i,j){
 		//if (Utils.insideRect(i, j, cx - 50, cy + 50, 5, 5) ||
