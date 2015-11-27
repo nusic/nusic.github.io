@@ -1,14 +1,15 @@
 var graphlib = require('graphlib');
 var Graph = require('./CIGraph').Graph;
 var CINodeFactory = require('./CINodeFactory').CINodeFactory;
+var uniqueid = require('uniqueid');
 
-function CIGraphFactory() {
-	
+function CIGraphFactory(nodeFactory) {
+	this.nodeFactory = nodeFactory;
 }
 
 CIGraphFactory.prototype.createEmpty = function() {
 	var g = new Graph();
-	g.nodeFactory = new CINodeFactory();
+	g.nodeFactory = this.nodeFactory;
 	return g;
 }
 
@@ -42,14 +43,14 @@ function filter(tests, a, startIndex) {
  *			g 				CIGraph, with multiple code_changes
  */
 CIGraphFactory.prototype.create = function(n, a) {
-	var g = this.createEmpty();
+	var graphs = [];
 
 	var firstTests = ['patch_verification', 'code_review'];
 	var secondTests = ['test', 'test'];
 	var thirdTests = ['test', 'test'];
 
 	for (var i = 0; i < n; i++) {
-
+		var g = this.createEmpty();
 		g.set('code_change');
 
 		// Cause some tests, which causes build. Remember build index
@@ -70,9 +71,10 @@ CIGraphFactory.prototype.create = function(n, a) {
 		var third = filter(thirdTests, a, g.nodes().length);
 		g.set('confidence_level').causedBy(second.indices).subjectTo(artifact).cause(third.tests);
 
+		graphs.push(g);
 	};
 
-	return g;
+	return graphs;
 };
 
 

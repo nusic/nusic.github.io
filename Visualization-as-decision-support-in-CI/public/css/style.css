@@ -8,7 +8,7 @@ text {
 	font-size: 14px;
 }
 
-.node rect, .node ellipse {
+.node rect, .node ellipse, .node diamond, .node circle{
   stroke: #333;
   stroke-width: 1.5px;
   fill: #fff;

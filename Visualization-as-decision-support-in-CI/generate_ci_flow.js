@@ -10,28 +10,42 @@ var graphlib = require("graphlib");
 var dot = require('graphlib-dot');
 
 var CIGraphFactory = require('./src/CIGraphFactory.js').CIGraphFactory;
+var CINodeFactory = require('./src/CINodeFactory.js').CINodeFactory;
 
 
 // Create graph
-var ciGraphFactory = new CIGraphFactory();
-var g = ciGraphFactory.create(10, 0.7);
+var ciGraphFactory = new CIGraphFactory(new CINodeFactory());
+var graphs = ciGraphFactory.create(10, 0.7);
 
 
-// Output graph
-var writer = (process.argv.indexOf('--json') !== -1) ? graphlib.json : dot;
-var specifiedFile = process.argv.indexOf('-file')+1;
+// if not '--none' was specified, output the graph
+if(process.argv.indexOf('--none') === -1){
 
+	var toJsonStr = function(g){
+		return JSON.stringify(graphlib.json.write(g), null, 2);
+	}
 
-var graphStr = writer.write(g);
+	var toDotStr = function(g){
+		return dot.write(g);
+	}
 
-if(specifiedFile){
-	var fileName = process.argv[specifiedFile];
-	
-	fs.writeFile(fileName, graphStr, function (err) { 
-		if(err) return console.error(err);
-		console.log('saved to ' + fileName);
+	var stringify = (process.argv.indexOf('--json') !== -1) ? toJsonStr : toDotStr;
+	var specifiedFile = process.argv.indexOf('-file')+1;
+
+	var graphStr = '';
+	graphs.forEach(function (g){
+		graphStr += stringify(g) + '\n';
 	});
-}
-else if (process.argv.indexOf('--none') === -1){
-	console.log(graphStr);
+
+	if(specifiedFile){
+		var fileName = process.argv[specifiedFile];
+		
+		fs.writeFile(fileName, graphStr, function (err) { 
+			if(err) return console.error(err);
+			console.log('saved to ' + fileName);
+		});
+	}
+	else{
+		console.log(graphStr);
+	}
 }

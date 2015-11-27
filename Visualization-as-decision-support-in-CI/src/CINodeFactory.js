@@ -1,7 +1,7 @@
 var uniqueid = require('uniqueid');
 
 function CINodeFactory() {
-	this.time = 0;
+	this.time = new Date(2015, 9, 13, 13, 37, 0, 0);
 	this.factoryMap = {};
 
 	this.initFactoryMap([
@@ -14,6 +14,10 @@ function CINodeFactory() {
 		{ type: 'confidence_level', factory: CIConfidenceLevelFactory },
 	]);
 
+};
+
+CINodeFactory.prototype.getTime = function() {
+	return this.time.setSeconds(this.time.getSeconds() + 3600 * Math.random());
 };
 
 CINodeFactory.prototype.initFactoryMap = function(typesAndFactories) {
@@ -35,7 +39,7 @@ CINodeFactory.prototype.createBaseNode = function(specificFactory) {
 	return {
 		id: uniqueid({prefix: specificFactory.type + '_'} ),
 		data: {
-			time: this.time++,
+			time: this.getTime(),
 			type: specificFactory.type,
 		}
 	}
