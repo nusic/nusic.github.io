@@ -1,0 +1,19 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "graphlib_dot_test.js",
+  "dependencies": {
+    "graphlib": "^1.0.7",
+    "graphlib-dot": "^0.6.2",
+    "graphviz": "^0.0.8",
+    "uniqueid": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Erik Broberg",
+  "license": "ISC"
+}

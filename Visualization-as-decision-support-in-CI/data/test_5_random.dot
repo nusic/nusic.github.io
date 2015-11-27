@@ -1,0 +1,61 @@
+strict digraph {
+  code_change_1 [time=0,type=code_change]
+  patch_verification_2 [time=1,type=patch_verification]
+  code_review_3 [time=2,type=code_review]
+  build_4 [time=3,type=build]
+  code_change_5 [time=4,type=code_change]
+  code_review_6 [time=5,type=code_review]
+  build_7 [time=6,type=build]
+  test_8 [time=7,type=test]
+  test_9 [time=8,type=test]
+  artifact_10 [time=9,type=artifact]
+  confidence_level_11 [time=10,type=confidence_level]
+  test_12 [time=11,type=test]
+  code_change_13 [time=12,type=code_change]
+  patch_verification_14 [time=13,type=patch_verification]
+  code_review_15 [time=14,type=code_review]
+  build_16 [time=15,type=build]
+  test_17 [time=16,type=test]
+  artifact_18 [time=17,type=artifact]
+  confidence_level_19 [time=18,type=confidence_level]
+  test_20 [time=19,type=test]
+  code_change_21 [time=20,type=code_change]
+  code_change_22 [time=21,type=code_change]
+  code_review_23 [time=22,type=code_review]
+  build_24 [time=23,type=build]
+  test_25 [time=24,type=test]
+  artifact_26 [time=25,type=artifact]
+  confidence_level_27 [time=26,type=confidence_level]
+  test_28 [time=27,type=test]
+  test_29 [time=28,type=test]
+  patch_verification_2 -> code_change_1
+  code_review_3 -> code_change_1
+  build_4 -> patch_verification_2
+  build_4 -> code_review_3
+  code_review_6 -> code_change_5
+  build_7 -> code_review_6
+  test_8 -> build_7
+  test_9 -> build_7
+  artifact_10 -> build_7
+  confidence_level_11 -> test_8
+  confidence_level_11 -> test_9
+  confidence_level_11 -> artifact_10
+  test_12 -> confidence_level_11
+  patch_verification_14 -> code_change_13
+  code_review_15 -> code_change_13
+  build_16 -> patch_verification_14
+  build_16 -> code_review_15
+  test_17 -> build_16
+  artifact_18 -> build_16
+  confidence_level_19 -> test_17
+  confidence_level_19 -> artifact_18
+  test_20 -> confidence_level_19
+  code_review_23 -> code_change_22
+  build_24 -> code_review_23
+  test_25 -> build_24
+  artifact_26 -> build_24
+  confidence_level_27 -> test_25
+  confidence_level_27 -> artifact_26
+  test_28 -> confidence_level_27
+  test_29 -> confidence_level_27
+}

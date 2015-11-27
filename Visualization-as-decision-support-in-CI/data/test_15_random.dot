@@ -1,0 +1,245 @@
+strict digraph {
+  code_change_1 [time=0,type=code_change]
+  patch_verification_2 [time=1,type=patch_verification]
+  code_review_3 [time=2,type=code_review]
+  build_4 [time=3,type=build]
+  test_5 [time=4,type=test]
+  test_6 [time=5,type=test]
+  artifact_7 [time=6,type=artifact]
+  confidence_level_8 [time=7,type=confidence_level]
+  test_9 [time=8,type=test]
+  code_change_10 [time=9,type=code_change]
+  patch_verification_11 [time=10,type=patch_verification]
+  code_review_12 [time=11,type=code_review]
+  build_13 [time=12,type=build]
+  test_14 [time=13,type=test]
+  test_15 [time=14,type=test]
+  artifact_16 [time=15,type=artifact]
+  confidence_level_17 [time=16,type=confidence_level]
+  code_change_18 [time=17,type=code_change]
+  code_review_19 [time=18,type=code_review]
+  build_20 [time=19,type=build]
+  test_21 [time=20,type=test]
+  test_22 [time=21,type=test]
+  artifact_23 [time=22,type=artifact]
+  confidence_level_24 [time=23,type=confidence_level]
+  test_25 [time=24,type=test]
+  test_26 [time=25,type=test]
+  code_change_27 [time=26,type=code_change]
+  patch_verification_28 [time=27,type=patch_verification]
+  code_review_29 [time=28,type=code_review]
+  build_30 [time=29,type=build]
+  test_31 [time=30,type=test]
+  test_32 [time=31,type=test]
+  artifact_33 [time=32,type=artifact]
+  confidence_level_34 [time=33,type=confidence_level]
+  test_35 [time=34,type=test]
+  test_36 [time=35,type=test]
+  code_change_37 [time=36,type=code_change]
+  patch_verification_38 [time=37,type=patch_verification]
+  code_review_39 [time=38,type=code_review]
+  build_40 [time=39,type=build]
+  test_41 [time=40,type=test]
+  test_42 [time=41,type=test]
+  artifact_43 [time=42,type=artifact]
+  confidence_level_44 [time=43,type=confidence_level]
+  test_45 [time=44,type=test]
+  test_46 [time=45,type=test]
+  code_change_47 [time=46,type=code_change]
+  code_review_48 [time=47,type=code_review]
+  build_49 [time=48,type=build]
+  test_50 [time=49,type=test]
+  test_51 [time=50,type=test]
+  artifact_52 [time=51,type=artifact]
+  confidence_level_53 [time=52,type=confidence_level]
+  test_54 [time=53,type=test]
+  code_change_55 [time=54,type=code_change]
+  code_review_56 [time=55,type=code_review]
+  build_57 [time=56,type=build]
+  test_58 [time=57,type=test]
+  artifact_59 [time=58,type=artifact]
+  confidence_level_60 [time=59,type=confidence_level]
+  test_61 [time=60,type=test]
+  code_change_62 [time=61,type=code_change]
+  code_change_63 [time=62,type=code_change]
+  patch_verification_64 [time=63,type=patch_verification]
+  build_65 [time=64,type=build]
+  test_66 [time=65,type=test]
+  test_67 [time=66,type=test]
+  artifact_68 [time=67,type=artifact]
+  confidence_level_69 [time=68,type=confidence_level]
+  test_70 [time=69,type=test]
+  test_71 [time=70,type=test]
+  code_change_72 [time=71,type=code_change]
+  code_change_73 [time=72,type=code_change]
+  patch_verification_74 [time=73,type=patch_verification]
+  code_review_75 [time=74,type=code_review]
+  build_76 [time=75,type=build]
+  test_77 [time=76,type=test]
+  test_78 [time=77,type=test]
+  artifact_79 [time=78,type=artifact]
+  confidence_level_80 [time=79,type=confidence_level]
+  test_81 [time=80,type=test]
+  test_82 [time=81,type=test]
+  code_change_83 [time=82,type=code_change]
+  patch_verification_84 [time=83,type=patch_verification]
+  code_review_85 [time=84,type=code_review]
+  build_86 [time=85,type=build]
+  test_87 [time=86,type=test]
+  artifact_88 [time=87,type=artifact]
+  confidence_level_89 [time=88,type=confidence_level]
+  test_90 [time=89,type=test]
+  code_change_91 [time=90,type=code_change]
+  code_review_92 [time=91,type=code_review]
+  build_93 [time=92,type=build]
+  test_94 [time=93,type=test]
+  test_95 [time=94,type=test]
+  artifact_96 [time=95,type=artifact]
+  confidence_level_97 [time=96,type=confidence_level]
+  test_98 [time=97,type=test]
+  code_change_99 [time=98,type=code_change]
+  patch_verification_100 [time=99,type=patch_verification]
+  code_review_101 [time=100,type=code_review]
+  build_102 [time=101,type=build]
+  test_103 [time=102,type=test]
+  artifact_104 [time=103,type=artifact]
+  confidence_level_105 [time=104,type=confidence_level]
+  test_106 [time=105,type=test]
+  code_change_107 [time=106,type=code_change]
+  patch_verification_108 [time=107,type=patch_verification]
+  code_review_109 [time=108,type=code_review]
+  build_110 [time=109,type=build]
+  test_111 [time=110,type=test]
+  artifact_112 [time=111,type=artifact]
+  confidence_level_113 [time=112,type=confidence_level]
+  test_114 [time=113,type=test]
+  patch_verification_2 -> code_change_1
+  code_review_3 -> code_change_1
+  build_4 -> patch_verification_2
+  build_4 -> code_review_3
+  test_5 -> build_4
+  test_6 -> build_4
+  artifact_7 -> build_4
+  confidence_level_8 -> test_5
+  confidence_level_8 -> test_6
+  confidence_level_8 -> artifact_7
+  test_9 -> confidence_level_8
+  patch_verification_11 -> code_change_10
+  code_review_12 -> code_change_10
+  build_13 -> patch_verification_11
+  build_13 -> code_review_12
+  test_14 -> build_13
+  test_15 -> build_13
+  artifact_16 -> build_13
+  confidence_level_17 -> test_14
+  confidence_level_17 -> test_15
+  confidence_level_17 -> artifact_16
+  code_review_19 -> code_change_18
+  build_20 -> code_review_19
+  test_21 -> build_20
+  test_22 -> build_20
+  artifact_23 -> build_20
+  confidence_level_24 -> test_21
+  confidence_level_24 -> test_22
+  confidence_level_24 -> artifact_23
+  test_25 -> confidence_level_24
+  test_26 -> confidence_level_24
+  patch_verification_28 -> code_change_27
+  code_review_29 -> code_change_27
+  build_30 -> patch_verification_28
+  build_30 -> code_review_29
+  test_31 -> build_30
+  test_32 -> build_30
+  artifact_33 -> build_30
+  confidence_level_34 -> test_31
+  confidence_level_34 -> test_32
+  confidence_level_34 -> artifact_33
+  test_35 -> confidence_level_34
+  test_36 -> confidence_level_34
+  patch_verification_38 -> code_change_37
+  code_review_39 -> code_change_37
+  build_40 -> patch_verification_38
+  build_40 -> code_review_39
+  test_41 -> build_40
+  test_42 -> build_40
+  artifact_43 -> build_40
+  confidence_level_44 -> test_41
+  confidence_level_44 -> test_42
+  confidence_level_44 -> artifact_43
+  test_45 -> confidence_level_44
+  test_46 -> confidence_level_44
+  code_review_48 -> code_change_47
+  build_49 -> code_review_48
+  test_50 -> build_49
+  test_51 -> build_49
+  artifact_52 -> build_49
+  confidence_level_53 -> test_50
+  confidence_level_53 -> test_51
+  confidence_level_53 -> artifact_52
+  test_54 -> confidence_level_53
+  code_review_56 -> code_change_55
+  build_57 -> code_review_56
+  test_58 -> build_57
+  artifact_59 -> build_57
+  confidence_level_60 -> test_58
+  confidence_level_60 -> artifact_59
+  test_61 -> confidence_level_60
+  patch_verification_64 -> code_change_63
+  build_65 -> patch_verification_64
+  test_66 -> build_65
+  test_67 -> build_65
+  artifact_68 -> build_65
+  confidence_level_69 -> test_66
+  confidence_level_69 -> test_67
+  confidence_level_69 -> artifact_68
+  test_70 -> confidence_level_69
+  test_71 -> confidence_level_69
+  patch_verification_74 -> code_change_73
+  code_review_75 -> code_change_73
+  build_76 -> patch_verification_74
+  build_76 -> code_review_75
+  test_77 -> build_76
+  test_78 -> build_76
+  artifact_79 -> build_76
+  confidence_level_80 -> test_77
+  confidence_level_80 -> test_78
+  confidence_level_80 -> artifact_79
+  test_81 -> confidence_level_80
+  test_82 -> confidence_level_80
+  patch_verification_84 -> code_change_83
+  code_review_85 -> code_change_83
+  build_86 -> patch_verification_84
+  build_86 -> code_review_85
+  test_87 -> build_86
+  artifact_88 -> build_86
+  confidence_level_89 -> test_87
+  confidence_level_89 -> artifact_88
+  test_90 -> confidence_level_89
+  code_review_92 -> code_change_91
+  build_93 -> code_review_92
+  test_94 -> build_93
+  test_95 -> build_93
+  artifact_96 -> build_93
+  confidence_level_97 -> test_94
+  confidence_level_97 -> test_95
+  confidence_level_97 -> artifact_96
+  test_98 -> confidence_level_97
+  patch_verification_100 -> code_change_99
+  code_review_101 -> code_change_99
+  build_102 -> patch_verification_100
+  build_102 -> code_review_101
+  test_103 -> build_102
+  artifact_104 -> build_102
+  confidence_level_105 -> test_103
+  confidence_level_105 -> artifact_104
+  test_106 -> confidence_level_105
+  patch_verification_108 -> code_change_107
+  code_review_109 -> code_change_107
+  build_110 -> patch_verification_108
+  build_110 -> code_review_109
+  test_111 -> build_110
+  artifact_112 -> build_110
+  confidence_level_113 -> test_111
+  confidence_level_113 -> artifact_112
+  test_114 -> confidence_level_113
+}
