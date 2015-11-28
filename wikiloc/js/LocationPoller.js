@@ -20,6 +20,7 @@ var LocationPoller = function(wait){
 		dataContainer.innerHTML += position.coords.longitude + '&nbsp;&nbsp;&nbsp;' + position.coords.latitude + '<br />';
 	};
 
+	getLocation();
 	var interval = setInterval(getLocation, wait);
 }
 
