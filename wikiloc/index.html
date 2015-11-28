@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wiki Loco</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/tts_api.js"></script>
+	<script type="text/javascript" src="js/LocationPoller.js"></script>
+</head>
+<body>
+<p>longitude: <span id="lon">?</span></p>
+<p>latitude: <span id="lat">?</span></p>
+<p>adress/location: <span id="location">?</span></p>
+<p>wiki text: <span id="wikitext">?</span></p>
+<p id="data-container"></p>
+
+<script type="text/javascript">
+
+	var lp = new LocationPoller(10*1000);
+
+	tts_api.request('en', 'hello there', function(){
+		
+	});
+</script>
+</body>
+</html>
