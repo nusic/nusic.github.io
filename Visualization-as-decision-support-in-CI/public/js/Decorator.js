@@ -26,13 +26,12 @@ Decorator.prototype.addTimeToLabel = function(node) {
 
 Decorator.prototype.addDateToLabel = function(node) {
 	var d = new Date(Number(node.time));
-	var dateStr = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
-	node.label += '\n' + dateStr;
+	node.label += '\n' + d.toDateStr();
 };
 
 Decorator.prototype.colorCodePassFail = function(node) {
-	if(node.passed === 'true') node.style += 'fill: #afa;';
-	if(node.passed === 'false') node.style += 'fill: #faa;';
+	if(node.status === 'passed') node.style += 'fill: #afa;';
+	if(node.status === 'failed') node.style += 'fill: #faa;';
 };
 
 Decorator.prototype.decorateNode = function(node) {
@@ -68,12 +67,29 @@ Decorator.prototype.build = function(node){
 
 }
 
+Decorator.prototype.test_A = function(node){
+	this.test(node);
+}
+
+Decorator.prototype.test_B = function(node){
+	this.test(node);
+}
+
+Decorator.prototype.test_C = function(node){
+	this.test(node);
+}
+
+Decorator.prototype.test_D = function(node){
+	this.test(node);
+}
+
 Decorator.prototype.test = function(node){
 
 }
 
 Decorator.prototype.artifact = function(node){
 	node.shape = 'circle';
+	node.style += 'fill: #aaf;'; 
 }
 
 Decorator.prototype.confidence_level = function(node){
