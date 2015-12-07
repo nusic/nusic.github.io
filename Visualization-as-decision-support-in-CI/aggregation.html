@@ -2,25 +2,33 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="public/css/style.css">
-	<link rel="stylesheet" type="text/css" href="public/css/time_slider.css">
-	
+
+	<!-- time line event horizon -->
+	<link rel="stylesheet" type="text/css" href="lib/d3.timeline.event-horizon.css">
+	<script src="lib/d3.timeline.event-horizon.js"></script>
+	<!--<script src="lib/d3.timeline.event-horizon.min.js"></script>-->
+
+
+		
 	<!-- d3, graphlib and dagre-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 	<script src="http://cpettitt.github.io/project/graphlib-dot/latest/graphlib-dot.min.js"></script>
 	<script src="http://cpettitt.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+
+	<script src="lib/d3-timeline.js"></script>
 
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
 	<!-- custom -->
-	<script src="public/js/d3_show_aggregation.js"></script>
-	<script src="public/js/TimeSlider.js"></script>
-	<script src="public/js/AggregatedGraphDecorator.js"></script>
-	<script src="public/js/Aggregator.js"></script>
-	<script src="public/js/NodeClickHandler.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="public/css/time_slider.css">
+
+	<script src="public/js/show_aggregation/show_aggregation_main.js"></script>
+	<script src="public/js/show_aggregation/AggregatedGraphDecorator.js"></script>
+	<script src="public/js/show_aggregation/Aggregator.js"></script>
+	<script src="public/js/show_aggregation/NodeClickHandler.js"></script>
 	<script src="public/js/utils.js"></script>
 </head>
 
@@ -32,9 +40,9 @@
 	</h3>
 	<div id="time-range">
 	    <p>Time Range: 
-	    	<span class="slider-time">?</span>
+	    	<span class="slider-time"></span>
 	    		 - 
-    		 <span class="slider-time2">?</span>
+    		 <span class="slider-time2">Loading data ...</span>
 		 </p>
 	    <div class="sliders_step1">
 	        <div id="slider-range"></div>
@@ -47,10 +55,15 @@
 			<g>
 		</svg>
 	</div>
+	<div id="timeline1">
 
+	</div>
+	<br />
 	<div id="event-timeline">
 		
 	</div>
+	
+	
 	<p id="graph-text"></p>
 </body>
 

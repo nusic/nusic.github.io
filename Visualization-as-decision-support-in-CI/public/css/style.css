@@ -32,3 +32,7 @@ g.node{
 #graph-text{
 	font-family: monospace;
 }
+
+.timelineSeries_passed{
+  fill: #f99;
+}
