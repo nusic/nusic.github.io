@@ -74,6 +74,19 @@ AggregatedGraphDecorator.prototype.test_D = function(node){
 	this.passable(node);
 }
 
+function decorateTransparencyAndBorder(node, color, t){
+	var alpha = Math.pow(t, 1);
+	node.style = 'fill: rgba('+ color.r + ',' + color.g + ',' + color.b + ','+ alpha +');';
+
+	var borderDash = {
+		length: 50*t*t*t,
+		gap: 50*(1-t)*(1-t)*(1-t)
+	};
+
+	node.style+= 'stroke-dasharray: ' + borderDash.length + ' ' + borderDash.gap + ';';
+}
+
+
 AggregatedGraphDecorator.prototype.passable = function(node){
 	node.label += '\npassed: ' + node.passed + '/' + (node.passed + node.failed);
 	var passRatio = node.passed / (node.passed + node.failed);
@@ -83,9 +96,9 @@ AggregatedGraphDecorator.prototype.passable = function(node){
 	var c = this.interpolateColors(failColor, passColor, passRatio);
 
 	var executionRatio = node.count / this.numAggregatedGraphs;
-	var alpha = Math.pow(executionRatio, 1);
-
-	node.style = 'fill: rgba('+ c.r + ',' + c.g + ',' + c.b + ','+ alpha +');';
+	
+	decorateTransparencyAndBorder(node, c, executionRatio);
+	
 }
 
 AggregatedGraphDecorator.prototype.artifact = function(node){
@@ -104,10 +117,10 @@ AggregatedGraphDecorator.prototype.confidence_level = function(node){
 	var c = this.interpolateColors(failColor, passColor, avgValue);
 
 	var executionRatio = node.count / this.numAggregatedGraphs;
-	var alpha = Math.pow(executionRatio, 1);
-
-	node.style = 'fill: rgba('+ c.r + ',' + c.g + ',' + c.b + ','+ alpha +');';
+	decorateTransparencyAndBorder(node, c, executionRatio);
 }
+
+
 
 AggregatedGraphDecorator.prototype.interpolateColors = function(c1, c2, t){
 	return {

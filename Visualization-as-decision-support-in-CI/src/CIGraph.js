@@ -142,5 +142,4 @@ Graph.prototype.set = function(nodeType) {
 };
 
 
-
 exports.Graph = Graph;

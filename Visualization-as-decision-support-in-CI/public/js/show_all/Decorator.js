@@ -20,8 +20,7 @@ Decorator.prototype.addTypeToLabel = function(node) {
 
 Decorator.prototype.addTimeToLabel = function(node) {
 	var d = new Date(Number(node.time));
-	var timeStr = d.toString().slice(16, 25);
-	node.label += '\n' + timeStr;
+	node.label += '\n' + d.toDateAndTimeStr();
 };
 
 Decorator.prototype.addDateToLabel = function(node) {
@@ -51,7 +50,6 @@ Decorator.prototype.decorateNode = function(node) {
 
 Decorator.prototype.code_change = function(node){
 	node.shape = 'circle';
-	this.addDateToLabel(node);
 	node.label += '\n(' + node.contributor + ')';
 }
 

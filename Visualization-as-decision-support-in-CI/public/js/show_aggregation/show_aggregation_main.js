@@ -4,11 +4,10 @@ window.onload = function() {
   var aggregator = new Aggregator();
 
   var decorator = new AggregatedGraphDecorator();
-  var nodeClickHandler = new NodeClickHandler( $('#event-timeline')[0] );
-    
+  var nodeClickHandler = new NodeClickHandler( $('#event-timeline')[0] );  
 
   $.ajax({
-    url: "data/test1.dot"
+    url: "data/test100_M_to_1.dot"
     //url: "data/test2.dot"
   }).done(function (data) {
     

@@ -150,7 +150,8 @@ function CIConfidenceLevelFactory(masterFactory, type) {
 
 CIConfidenceLevelFactory.prototype.create = function() {
 	var node = this.masterFactory.createBaseNode(this);
-	node.data.value = Math.random();
+	var r = Math.random();
+	node.data.value = 1 - r*r;
 	return node;
 }
 

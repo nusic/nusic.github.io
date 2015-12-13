@@ -17,13 +17,20 @@ var CINodeFactory = require('./src/CINodeFactory.js').CINodeFactory;
 var numGraphsIndex = process.argv.indexOf('-n')+1;
 var numGraphs = numGraphsIndex ? parseInt(process.argv[numGraphsIndex]) : 1;
 
-var testExecutionProbabilityIndex = process.argv.indexOf('-a')+1;
+var testExecutionProbabilityIndex = process.argv.indexOf('-p')+1;
 var testExecutionProbability = testExecutionProbabilityIndex ? parseFloat(process.argv[testExecutionProbabilityIndex]) : 1;
+
+var manyToOneProbabilityIndex = process.argv.indexOf('-m')+1;
+var manyToOneProbability = manyToOneProbabilityIndex ? parseFloat(process.argv[manyToOneProbabilityIndex]) : 1;
 
 
 // Create graph
 var ciGraphFactory = new CIGraphFactory(new CINodeFactory());
-var graphs = ciGraphFactory.create(numGraphs, testExecutionProbability);
+var graphs = ciGraphFactory.create(numGraphs, testExecutionProbability, manyToOneProbability);
+
+for (var i = 0; i < graphs.length; i++) {
+	//console.log(i, graphs[i].nodes().length);
+};
 
 
 // if not '--none' was specified, output the graph

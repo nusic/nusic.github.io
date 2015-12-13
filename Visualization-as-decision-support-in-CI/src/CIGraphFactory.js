@@ -30,19 +30,36 @@ function filter(tests, testExecutionProbability, startIndex) {
 	};
 }
 
+
+function containsStatus(g, testIndices, status){
+	var nodes = g.nodes();
+	for (var i = 0; i < testIndices.length; i++) {
+		var nodeIndex = testIndices[i];
+		var nodeName = nodes[nodeIndex];
+		var nodeData = g.node(nodeName);
+		if(nodeData.status === status){
+			return true;
+		}
+	};
+	return false;
+}
+
+
 /**
- *	Create a CI Graph with structures varying from 
- *	the standard 1:1 mapping.
  *
  *	ARGUMENTS: 
- *			numGraphs 								number of graphs to create, i.e. number 
- *																of code_changes
- *			testExecutionProbability 	probability that a test will be executed.
+ *			numGraphs 					number of graphs to create, i.e. number
+ *										of code_changes
+ *
+ *			testExecutionProbability 	probability that a test will be executed
+ *
+ *			manyToOneProbability		probability that flow stos after
+ *										code_change, build or confidence_level
  *
  *	RETURNS:
- *			g 												CIGraph, with multiple code_changes
+ *			graphs 						Array of CIGraphs
  */
-CIGraphFactory.prototype.create = function(numGraphs, testExecutionProbability) {
+CIGraphFactory.prototype.create = function(numGraphs, testExecutionProbability, manyToOneProbability) {
 	var graphs = [];
 
 	var firstTests = ['patch_verification', 'code_review'];
@@ -51,31 +68,55 @@ CIGraphFactory.prototype.create = function(numGraphs, testExecutionProbability) 
 
 	for (var i = 0; i < numGraphs; i++) {
 		var g = this.createEmpty();
+		graphs.push(g);
+
+		// Create Code Change
 		g.set('code_change');
 
-		// Cause some tests, which causes build. Remember build index
+		// May stop due to 1:M relation
+		if(Math.random() < manyToOneProbability) continue;
+
+		// Else -> Let Code Change cause some tests, if any
 		var first = filter(firstTests, testExecutionProbability, g.nodes().length);
 		if(first.tests.length === 0) continue;
+		g.cause(first.tests);
 
-		g.cause(first.tests).set('build').causedBy(first.indices);
+		// If any test failed, stop flow here
+		if(containsStatus(g, first.indices, 'failed')) continue;
+
+		// Else -> Let tests cause a build. Remeber build reference
+		g.set('build').causedBy(first.indices);
 		var build = g.nodes().length-1;
 
-		// build may cause some more tests, and an artifact
-		var second = filter(secondTests, testExecutionProbability, g.nodes().length);
-		if(second.tests.length === 0) continue;
+		// May stop due to 1:M relation
+		if(Math.random() < manyToOneProbability) continue;
 
+		// Else -> Build cause an artifact, and some tests, if any
+		var second = filter(secondTests, testExecutionProbability, g.nodes().length);
 		g.cause(second.tests.concat('artifact'));
+
+		// Store artifact reference
 		var artifact = g.nodes().length-1;
 
-		// second tests cause confidence level subject to artifact, which in turn may cause more test
-		var third = filter(thirdTests, testExecutionProbability, g.nodes().length);
-		g.set('confidence_level').causedBy(second.indices).subjectTo(artifact).cause(third.tests);
+		// Stop if we didn't execute any second tests, or if any second tests failed
+		if(second.tests.length === 0) continue;
+		if(containsStatus(g, second.indices, 'failed')) continue;
 
-		graphs.push(g);
+		// If test passed -> Set confidence caused by second tests, subject to artifact
+		g.set('confidence_level').causedBy(second.indices).subjectTo(artifact);
+
+		// May stop due to 1:M relation
+		if(Math.random() < manyToOneProbability) continue;
+
+		// Else -> Confidence level causes the third group of tests
+		var third = filter(thirdTests, testExecutionProbability, g.nodes().length);
+		g.cause(third.tests);
+
 	};
 
 	return graphs;
 };
+
 
 
 exports.CIGraphFactory = CIGraphFactory;

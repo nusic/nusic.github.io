@@ -14,9 +14,10 @@ Aggregator.prototype.aggregationMethodMap = {
 	test_D: 'passable',
 	artifact: 'default',
 	confidence_level: 'confidence_level',
+	first_occurance: 'first_occurance',
 }
 
-Aggregator.prototype.unionOf = function(graphs){
+Aggregator.prototype.unionOf = function(graphs, aggregationMethod){
 	
 	var unionNodeMap = {};
 
@@ -27,9 +28,11 @@ Aggregator.prototype.unionOf = function(graphs){
 			var nodeData = graphs[i].node(nodeName);
 			nodeData.nodeIndex = j;
 
-			var aggregationMethod = this.aggregationMethodMap[nodeData.type];
+			// If aggregationMethod was provided as argument, use that,
+			// else use aggregation method based on node type
+			var nodeAggregationMethod = aggregationMethod || this.aggregationMethodMap[nodeData.type];
 			try{
-				this[aggregationMethod](unionNodeMap, nodeData);
+				this[nodeAggregationMethod](unionNodeMap, nodeData);
 			}
 			catch(e){
 				console.log(nodeData.type)
@@ -77,6 +80,12 @@ Aggregator.prototype.unionOf = function(graphs){
 	return unionGraph;
 }
 
+/*
+ *
+ * Aggregation methods
+ *
+ */
+
 Aggregator.prototype.default = function(unionNodeMap, nodeData) {
 	if(unionNodeMap[nodeData.type] === undefined){
 		unionNodeMap[nodeData.type] = { 
@@ -107,4 +116,12 @@ Aggregator.prototype.confidence_level = function(unionNodeMap, nodeData) {
 	var unionNode = unionNodeMap[nodeData.type];
 	if(unionNode.sumValue === undefined) unionNode.sumValue = 0;
 	unionNode.sumValue += parseFloat(nodeData.value);
+};
+
+
+Aggregator.prototype.first_occurance = function(unionNodeMap, nodeData) {
+	if(unionNodeMap[nodeData.type] === undefined){
+		unionNodeMap[nodeData.type] = nodeData;
+		unionNodeMap[nodeData.type].meta = 'first_occurance';
+	}
 };

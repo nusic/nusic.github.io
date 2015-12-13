@@ -1,0 +1,1336 @@
+strict digraph {
+  code_change_1 [time=1444738602000,type=code_change,contributor="Gudrun Schyman"]
+}
+
+strict digraph {
+  code_change_2 [time=1444741341000,type=code_change,contributor="Pelle Flöjt"]
+  patch_verification_3 [time=1444743613000,type=patch_verification,status=passed]
+  code_review_4 [time=1444747088000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_5 [time=1444750033000,type=build,status=passed]
+  test_A_6 [time=1444753204000,type=test_A,status=passed]
+  test_B_7 [time=1444756080000,type=test_B,status=passed]
+  artifact_8 [time=1444758007000,type=artifact]
+  confidence_level_9 [time=1444759776000,type=confidence_level,value=0.7420162068959373]
+  test_C_10 [time=1444760287000,type=test_C,status=passed]
+  test_D_11 [time=1444760594000,type=test_D,status=passed]
+  patch_verification_3 -> code_change_2 [label=cause]
+  code_review_4 -> code_change_2 [label=cause]
+  build_5 -> patch_verification_3 [label=cause]
+  build_5 -> code_review_4 [label=cause]
+  test_A_6 -> build_5 [label=cause]
+  test_B_7 -> build_5 [label=cause]
+  artifact_8 -> build_5 [label=cause]
+  confidence_level_9 -> test_A_6 [label=cause]
+  confidence_level_9 -> test_B_7 [label=cause]
+  confidence_level_9 -> artifact_8 [label=subject]
+  test_C_10 -> confidence_level_9 [label=cause]
+  test_D_11 -> confidence_level_9 [label=cause]
+}
+
+strict digraph {
+  code_change_12 [time=1444763962000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_13 [time=1444767157000,type=patch_verification,status=passed]
+  code_review_14 [time=1444768865000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_15 [time=1444770400000,type=build,status=passed]
+  test_A_16 [time=1444771761000,type=test_A,status=passed]
+  test_B_17 [time=1444774458000,type=test_B,status=passed]
+  artifact_18 [time=1444777546000,type=artifact]
+  confidence_level_19 [time=1444781082000,type=confidence_level,value=0.15578317809961162]
+  test_C_20 [time=1444781456000,type=test_C,status=passed]
+  test_D_21 [time=1444784459000,type=test_D,status=passed]
+  patch_verification_13 -> code_change_12 [label=cause]
+  code_review_14 -> code_change_12 [label=cause]
+  build_15 -> patch_verification_13 [label=cause]
+  build_15 -> code_review_14 [label=cause]
+  test_A_16 -> build_15 [label=cause]
+  test_B_17 -> build_15 [label=cause]
+  artifact_18 -> build_15 [label=cause]
+  confidence_level_19 -> test_A_16 [label=cause]
+  confidence_level_19 -> test_B_17 [label=cause]
+  confidence_level_19 -> artifact_18 [label=subject]
+  test_C_20 -> confidence_level_19 [label=cause]
+  test_D_21 -> confidence_level_19 [label=cause]
+}
+
+strict digraph {
+  code_change_22 [time=1444787176000,type=code_change,contributor="Mark Zuckerberg"]
+}
+
+strict digraph {
+  code_change_23 [time=1444790270000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_24 [time=1444790686000,type=patch_verification,status=passed]
+  code_review_25 [time=1444791266000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  build_26 [time=1444791460000,type=build,status=passed]
+  test_A_27 [time=1444794889000,type=test_A,status=passed]
+  test_B_28 [time=1444795285000,type=test_B,status=passed]
+  artifact_29 [time=1444797629000,type=artifact]
+  confidence_level_30 [time=1444798605000,type=confidence_level,value=0.5515610601247856]
+  test_C_31 [time=1444800986000,type=test_C,status=passed]
+  test_D_32 [time=1444804520000,type=test_D,status=passed]
+  patch_verification_24 -> code_change_23 [label=cause]
+  code_review_25 -> code_change_23 [label=cause]
+  build_26 -> patch_verification_24 [label=cause]
+  build_26 -> code_review_25 [label=cause]
+  test_A_27 -> build_26 [label=cause]
+  test_B_28 -> build_26 [label=cause]
+  artifact_29 -> build_26 [label=cause]
+  confidence_level_30 -> test_A_27 [label=cause]
+  confidence_level_30 -> test_B_28 [label=cause]
+  confidence_level_30 -> artifact_29 [label=subject]
+  test_C_31 -> confidence_level_30 [label=cause]
+  test_D_32 -> confidence_level_30 [label=cause]
+}
+
+strict digraph {
+  code_change_33 [time=1444805242000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_34 [time=1444806148000,type=patch_verification,status=passed]
+  code_review_35 [time=1444808165000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_36 [time=1444808167000,type=build,status=passed]
+  patch_verification_34 -> code_change_33 [label=cause]
+  code_review_35 -> code_change_33 [label=cause]
+  build_36 -> patch_verification_34 [label=cause]
+  build_36 -> code_review_35 [label=cause]
+}
+
+strict digraph {
+  code_change_37 [time=1444810433000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_38 [time=1444810902000,type=patch_verification,status=passed]
+  code_review_39 [time=1444811874000,type=code_review,reviewer="Stånk-Tommy",status=failed]
+  patch_verification_38 -> code_change_37 [label=cause]
+  code_review_39 -> code_change_37 [label=cause]
+}
+
+strict digraph {
+  code_change_40 [time=1444812829000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_41 [time=1444815182000,type=patch_verification,status=passed]
+  code_review_42 [time=1444816974000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_43 [time=1444818507000,type=build,status=passed]
+  test_A_44 [time=1444821576000,type=test_A,status=passed]
+  test_B_45 [time=1444822815000,type=test_B,status=passed]
+  artifact_46 [time=1444824284000,type=artifact]
+  confidence_level_47 [time=1444824789000,type=confidence_level,value=0.27592755428646343]
+  test_D_48 [time=1444827618000,type=test_D,status=failed]
+  patch_verification_41 -> code_change_40 [label=cause]
+  code_review_42 -> code_change_40 [label=cause]
+  build_43 -> patch_verification_41 [label=cause]
+  build_43 -> code_review_42 [label=cause]
+  test_A_44 -> build_43 [label=cause]
+  test_B_45 -> build_43 [label=cause]
+  artifact_46 -> build_43 [label=cause]
+  confidence_level_47 -> test_A_44 [label=cause]
+  confidence_level_47 -> test_B_45 [label=cause]
+  confidence_level_47 -> artifact_46 [label=subject]
+  test_D_48 -> confidence_level_47 [label=cause]
+}
+
+strict digraph {
+  code_change_49 [time=1444829241000,type=code_change,contributor="Erik Broberg"]
+}
+
+strict digraph {
+  code_change_50 [time=1444830104000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_51 [time=1444833425000,type=patch_verification,status=passed]
+  code_review_52 [time=1444833541000,type=code_review,reviewer="Karl-Bertil Jonsson",status=failed]
+  patch_verification_51 -> code_change_50 [label=cause]
+  code_review_52 -> code_change_50 [label=cause]
+}
+
+strict digraph {
+  code_change_53 [time=1444834396000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_54 [time=1444835225000,type=patch_verification,status=passed]
+  code_review_55 [time=1444837365000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  build_56 [time=1444840380000,type=build,status=passed]
+  patch_verification_54 -> code_change_53 [label=cause]
+  code_review_55 -> code_change_53 [label=cause]
+  build_56 -> patch_verification_54 [label=cause]
+  build_56 -> code_review_55 [label=cause]
+}
+
+strict digraph {
+  code_change_57 [time=1444841873000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_58 [time=1444844397000,type=patch_verification,status=passed]
+  code_review_59 [time=1444846840000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_60 [time=1444848372000,type=build,status=passed]
+  test_A_61 [time=1444849429000,type=test_A,status=passed]
+  test_B_62 [time=1444850959000,type=test_B,status=passed]
+  artifact_63 [time=1444852394000,type=artifact]
+  confidence_level_64 [time=1444853018000,type=confidence_level,value=0.46345678027244763]
+  test_C_65 [time=1444854884000,type=test_C,status=passed]
+  test_D_66 [time=1444855015000,type=test_D,status=failed]
+  patch_verification_58 -> code_change_57 [label=cause]
+  code_review_59 -> code_change_57 [label=cause]
+  build_60 -> patch_verification_58 [label=cause]
+  build_60 -> code_review_59 [label=cause]
+  test_A_61 -> build_60 [label=cause]
+  test_B_62 -> build_60 [label=cause]
+  artifact_63 -> build_60 [label=cause]
+  confidence_level_64 -> test_A_61 [label=cause]
+  confidence_level_64 -> test_B_62 [label=cause]
+  confidence_level_64 -> artifact_63 [label=subject]
+  test_C_65 -> confidence_level_64 [label=cause]
+  test_D_66 -> confidence_level_64 [label=cause]
+}
+
+strict digraph {
+  code_change_67 [time=1444857503000,type=code_change,contributor="Pelle Flöjt"]
+  patch_verification_68 [time=1444857817000,type=patch_verification,status=passed]
+  code_review_69 [time=1444860670000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_70 [time=1444862401000,type=build,status=passed]
+  test_A_71 [time=1444863900000,type=test_A,status=failed]
+  artifact_72 [time=1444863923000,type=artifact]
+  patch_verification_68 -> code_change_67 [label=cause]
+  code_review_69 -> code_change_67 [label=cause]
+  build_70 -> patch_verification_68 [label=cause]
+  build_70 -> code_review_69 [label=cause]
+  test_A_71 -> build_70 [label=cause]
+  artifact_72 -> build_70 [label=cause]
+}
+
+strict digraph {
+  code_change_73 [time=1444865124000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_74 [time=1444865459000,type=patch_verification,status=passed]
+  code_review_75 [time=1444865601000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_76 [time=1444869035000,type=build,status=passed]
+  test_A_77 [time=1444869986000,type=test_A,status=passed]
+  test_B_78 [time=1444872540000,type=test_B,status=passed]
+  artifact_79 [time=1444872625000,type=artifact]
+  confidence_level_80 [time=1444872949000,type=confidence_level,value=0.9996338135768578]
+  test_C_81 [time=1444875019000,type=test_C,status=passed]
+  test_D_82 [time=1444878003000,type=test_D,status=passed]
+  patch_verification_74 -> code_change_73 [label=cause]
+  code_review_75 -> code_change_73 [label=cause]
+  build_76 -> patch_verification_74 [label=cause]
+  build_76 -> code_review_75 [label=cause]
+  test_A_77 -> build_76 [label=cause]
+  test_B_78 -> build_76 [label=cause]
+  artifact_79 -> build_76 [label=cause]
+  confidence_level_80 -> test_A_77 [label=cause]
+  confidence_level_80 -> test_B_78 [label=cause]
+  confidence_level_80 -> artifact_79 [label=subject]
+  test_C_81 -> confidence_level_80 [label=cause]
+  test_D_82 -> confidence_level_80 [label=cause]
+}
+
+strict digraph {
+  code_change_83 [time=1444881578000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_84 [time=1444883033000,type=patch_verification,status=passed]
+  build_85 [time=1444884047000,type=build,status=passed]
+  patch_verification_84 -> code_change_83 [label=cause]
+  build_85 -> patch_verification_84 [label=cause]
+}
+
+strict digraph {
+  code_change_86 [time=1444885984000,type=code_change,contributor="Zlatan Ibrahimović"]
+}
+
+strict digraph {
+  code_change_87 [time=1444889040000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_88 [time=1444891629000,type=patch_verification,status=passed]
+  code_review_89 [time=1444895204000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_90 [time=1444897746000,type=build,status=passed]
+  test_A_91 [time=1444898304000,type=test_A,status=passed]
+  test_B_92 [time=1444900432000,type=test_B,status=failed]
+  artifact_93 [time=1444903119000,type=artifact]
+  patch_verification_88 -> code_change_87 [label=cause]
+  code_review_89 -> code_change_87 [label=cause]
+  build_90 -> patch_verification_88 [label=cause]
+  build_90 -> code_review_89 [label=cause]
+  test_A_91 -> build_90 [label=cause]
+  test_B_92 -> build_90 [label=cause]
+  artifact_93 -> build_90 [label=cause]
+}
+
+strict digraph {
+  code_change_94 [time=1444905511000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_95 [time=1444907096000,type=patch_verification,status=passed]
+  code_review_96 [time=1444908383000,type=code_review,reviewer="Kalle Anka",status=passed]
+  build_97 [time=1444908542000,type=build,status=passed]
+  test_A_98 [time=1444909276000,type=test_A,status=passed]
+  test_B_99 [time=1444912813000,type=test_B,status=passed]
+  artifact_100 [time=1444915785000,type=artifact]
+  confidence_level_101 [time=1444916518000,type=confidence_level,value=0.4235493014147582]
+  test_D_102 [time=1444919917000,type=test_D,status=passed]
+  patch_verification_95 -> code_change_94 [label=cause]
+  code_review_96 -> code_change_94 [label=cause]
+  build_97 -> patch_verification_95 [label=cause]
+  build_97 -> code_review_96 [label=cause]
+  test_A_98 -> build_97 [label=cause]
+  test_B_99 -> build_97 [label=cause]
+  artifact_100 -> build_97 [label=cause]
+  confidence_level_101 -> test_A_98 [label=cause]
+  confidence_level_101 -> test_B_99 [label=cause]
+  confidence_level_101 -> artifact_100 [label=subject]
+  test_D_102 -> confidence_level_101 [label=cause]
+}
+
+strict digraph {
+  code_change_103 [time=1444920575000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_104 [time=1444921611000,type=patch_verification,status=passed]
+  code_review_105 [time=1444923971000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_106 [time=1444927090000,type=build,status=passed]
+  test_A_107 [time=1444927580000,type=test_A,status=passed]
+  test_B_108 [time=1444929681000,type=test_B,status=passed]
+  artifact_109 [time=1444930392000,type=artifact]
+  confidence_level_110 [time=1444933055000,type=confidence_level,value=0.9963766965307883]
+  test_D_111 [time=1444935189000,type=test_D,status=passed]
+  patch_verification_104 -> code_change_103 [label=cause]
+  code_review_105 -> code_change_103 [label=cause]
+  build_106 -> patch_verification_104 [label=cause]
+  build_106 -> code_review_105 [label=cause]
+  test_A_107 -> build_106 [label=cause]
+  test_B_108 -> build_106 [label=cause]
+  artifact_109 -> build_106 [label=cause]
+  confidence_level_110 -> test_A_107 [label=cause]
+  confidence_level_110 -> test_B_108 [label=cause]
+  confidence_level_110 -> artifact_109 [label=subject]
+  test_D_111 -> confidence_level_110 [label=cause]
+}
+
+strict digraph {
+  code_change_112 [time=1444935419000,type=code_change,contributor="Zlatan Ibrahimović"]
+}
+
+strict digraph {
+  code_change_113 [time=1444936635000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_114 [time=1444939782000,type=patch_verification,status=passed]
+  code_review_115 [time=1444943304000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_116 [time=1444945568000,type=build,status=passed]
+  patch_verification_114 -> code_change_113 [label=cause]
+  code_review_115 -> code_change_113 [label=cause]
+  build_116 -> patch_verification_114 [label=cause]
+  build_116 -> code_review_115 [label=cause]
+}
+
+strict digraph {
+  code_change_117 [time=1444948951000,type=code_change,contributor="Gudrun Schyman"]
+  patch_verification_118 [time=1444951294000,type=patch_verification,status=failed]
+  code_review_119 [time=1444954253000,type=code_review,reviewer=Beethoven,status=passed]
+  patch_verification_118 -> code_change_117 [label=cause]
+  code_review_119 -> code_change_117 [label=cause]
+}
+
+strict digraph {
+  code_change_120 [time=1444955893000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_121 [time=1444957013000,type=patch_verification,status=passed]
+  code_review_122 [time=1444960086000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_123 [time=1444963378000,type=build,status=passed]
+  test_A_124 [time=1444965351000,type=test_A,status=passed]
+  test_B_125 [time=1444965953000,type=test_B,status=passed]
+  artifact_126 [time=1444968420000,type=artifact]
+  confidence_level_127 [time=1444971177000,type=confidence_level,value=0.9899396319484256]
+  test_C_128 [time=1444973719000,type=test_C,status=passed]
+  test_D_129 [time=1444974520000,type=test_D,status=passed]
+  patch_verification_121 -> code_change_120 [label=cause]
+  code_review_122 -> code_change_120 [label=cause]
+  build_123 -> patch_verification_121 [label=cause]
+  build_123 -> code_review_122 [label=cause]
+  test_A_124 -> build_123 [label=cause]
+  test_B_125 -> build_123 [label=cause]
+  artifact_126 -> build_123 [label=cause]
+  confidence_level_127 -> test_A_124 [label=cause]
+  confidence_level_127 -> test_B_125 [label=cause]
+  confidence_level_127 -> artifact_126 [label=subject]
+  test_C_128 -> confidence_level_127 [label=cause]
+  test_D_129 -> confidence_level_127 [label=cause]
+}
+
+strict digraph {
+  code_change_130 [time=1444975293000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_131 [time=1444976010000,type=patch_verification,status=passed]
+  code_review_132 [time=1444977323000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_133 [time=1444978958000,type=build,status=passed]
+  test_A_134 [time=1444979919000,type=test_A,status=passed]
+  artifact_135 [time=1444982137000,type=artifact]
+  confidence_level_136 [time=1444983669000,type=confidence_level,value=0.94143636620056]
+  test_C_137 [time=1444986037000,type=test_C,status=passed]
+  test_D_138 [time=1444988502000,type=test_D,status=passed]
+  patch_verification_131 -> code_change_130 [label=cause]
+  code_review_132 -> code_change_130 [label=cause]
+  build_133 -> patch_verification_131 [label=cause]
+  build_133 -> code_review_132 [label=cause]
+  test_A_134 -> build_133 [label=cause]
+  artifact_135 -> build_133 [label=cause]
+  confidence_level_136 -> test_A_134 [label=cause]
+  confidence_level_136 -> artifact_135 [label=subject]
+  test_C_137 -> confidence_level_136 [label=cause]
+  test_D_138 -> confidence_level_136 [label=cause]
+}
+
+strict digraph {
+  code_change_139 [time=1444989497000,type=code_change,contributor="Pelle Flöjt"]
+  patch_verification_140 [time=1444990987000,type=patch_verification,status=passed]
+  build_141 [time=1444992079000,type=build,status=passed]
+  test_A_142 [time=1444994198000,type=test_A,status=passed]
+  test_B_143 [time=1444996765000,type=test_B,status=passed]
+  artifact_144 [time=1444998291000,type=artifact]
+  confidence_level_145 [time=1444998855000,type=confidence_level,value=0.9933529984186005]
+  test_C_146 [time=1444999825000,type=test_C,status=passed]
+  test_D_147 [time=1445002440000,type=test_D,status=passed]
+  patch_verification_140 -> code_change_139 [label=cause]
+  build_141 -> patch_verification_140 [label=cause]
+  test_A_142 -> build_141 [label=cause]
+  test_B_143 -> build_141 [label=cause]
+  artifact_144 -> build_141 [label=cause]
+  confidence_level_145 -> test_A_142 [label=cause]
+  confidence_level_145 -> test_B_143 [label=cause]
+  confidence_level_145 -> artifact_144 [label=subject]
+  test_C_146 -> confidence_level_145 [label=cause]
+  test_D_147 -> confidence_level_145 [label=cause]
+}
+
+strict digraph {
+  code_change_148 [time=1445003165000,type=code_change,contributor="Pelle Flöjt"]
+}
+
+strict digraph {
+  code_change_149 [time=1445005587000,type=code_change,contributor=Beethoven]
+  patch_verification_150 [time=1445008250000,type=patch_verification,status=passed]
+  code_review_151 [time=1445011832000,type=code_review,reviewer="Ola Leifler",status=passed]
+  build_152 [time=1445014109000,type=build,status=passed]
+  test_A_153 [time=1445014308000,type=test_A,status=passed]
+  test_B_154 [time=1445017627000,type=test_B,status=passed]
+  artifact_155 [time=1445019419000,type=artifact]
+  confidence_level_156 [time=1445020290000,type=confidence_level,value=0.8396433676534546]
+  patch_verification_150 -> code_change_149 [label=cause]
+  code_review_151 -> code_change_149 [label=cause]
+  build_152 -> patch_verification_150 [label=cause]
+  build_152 -> code_review_151 [label=cause]
+  test_A_153 -> build_152 [label=cause]
+  test_B_154 -> build_152 [label=cause]
+  artifact_155 -> build_152 [label=cause]
+  confidence_level_156 -> test_A_153 [label=cause]
+  confidence_level_156 -> test_B_154 [label=cause]
+  confidence_level_156 -> artifact_155 [label=subject]
+}
+
+strict digraph {
+  code_change_157 [time=1445021980000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_158 [time=1445024528000,type=patch_verification,status=passed]
+  code_review_159 [time=1445026902000,type=code_review,reviewer="Mark Zuckerberg",status=passed]
+  build_160 [time=1445027209000,type=build,status=passed]
+  test_A_161 [time=1445028062000,type=test_A,status=passed]
+  test_B_162 [time=1445031056000,type=test_B,status=passed]
+  artifact_163 [time=1445033871000,type=artifact]
+  confidence_level_164 [time=1445036226000,type=confidence_level,value=0.08942272731568512]
+  test_C_165 [time=1445037995000,type=test_C,status=passed]
+  patch_verification_158 -> code_change_157 [label=cause]
+  code_review_159 -> code_change_157 [label=cause]
+  build_160 -> patch_verification_158 [label=cause]
+  build_160 -> code_review_159 [label=cause]
+  test_A_161 -> build_160 [label=cause]
+  test_B_162 -> build_160 [label=cause]
+  artifact_163 -> build_160 [label=cause]
+  confidence_level_164 -> test_A_161 [label=cause]
+  confidence_level_164 -> test_B_162 [label=cause]
+  confidence_level_164 -> artifact_163 [label=subject]
+  test_C_165 -> confidence_level_164 [label=cause]
+}
+
+strict digraph {
+  code_change_166 [time=1445039361000,type=code_change,contributor="Zlatan Ibrahimović"]
+}
+
+strict digraph {
+  code_change_167 [time=1445041883000,type=code_change,contributor=Beethoven]
+  patch_verification_168 [time=1445044755000,type=patch_verification,status=failed]
+  patch_verification_168 -> code_change_167 [label=cause]
+}
+
+strict digraph {
+  code_change_169 [time=1445047165000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_170 [time=1445047205000,type=patch_verification,status=passed]
+  code_review_171 [time=1445049779000,type=code_review,reviewer="Kalle Anka",status=passed]
+  build_172 [time=1445050093000,type=build,status=passed]
+  test_A_173 [time=1445052238000,type=test_A,status=passed]
+  test_B_174 [time=1445054435000,type=test_B,status=passed]
+  artifact_175 [time=1445055879000,type=artifact]
+  confidence_level_176 [time=1445059162000,type=confidence_level,value=0.9592983856796563]
+  test_C_177 [time=1445060149000,type=test_C,status=failed]
+  patch_verification_170 -> code_change_169 [label=cause]
+  code_review_171 -> code_change_169 [label=cause]
+  build_172 -> patch_verification_170 [label=cause]
+  build_172 -> code_review_171 [label=cause]
+  test_A_173 -> build_172 [label=cause]
+  test_B_174 -> build_172 [label=cause]
+  artifact_175 -> build_172 [label=cause]
+  confidence_level_176 -> test_A_173 [label=cause]
+  confidence_level_176 -> test_B_174 [label=cause]
+  confidence_level_176 -> artifact_175 [label=subject]
+  test_C_177 -> confidence_level_176 [label=cause]
+}
+
+strict digraph {
+  code_change_178 [time=1445061271000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_179 [time=1445064618000,type=patch_verification,status=passed]
+  code_review_180 [time=1445064767000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_181 [time=1445065138000,type=build,status=passed]
+  patch_verification_179 -> code_change_178 [label=cause]
+  code_review_180 -> code_change_178 [label=cause]
+  build_181 -> patch_verification_179 [label=cause]
+  build_181 -> code_review_180 [label=cause]
+}
+
+strict digraph {
+  code_change_182 [time=1445065821000,type=code_change,contributor=Beethoven]
+  patch_verification_183 [time=1445065822000,type=patch_verification,status=passed]
+  code_review_184 [time=1445068987000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_185 [time=1445069599000,type=build,status=passed]
+  patch_verification_183 -> code_change_182 [label=cause]
+  code_review_184 -> code_change_182 [label=cause]
+  build_185 -> patch_verification_183 [label=cause]
+  build_185 -> code_review_184 [label=cause]
+}
+
+strict digraph {
+  code_change_186 [time=1445072253000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_187 [time=1445075169000,type=patch_verification,status=passed]
+  code_review_188 [time=1445076044000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_189 [time=1445077890000,type=build,status=passed]
+  test_B_190 [time=1445079770000,type=test_B,status=passed]
+  artifact_191 [time=1445083264000,type=artifact]
+  confidence_level_192 [time=1445084256000,type=confidence_level,value=0.6185173062079492]
+  patch_verification_187 -> code_change_186 [label=cause]
+  code_review_188 -> code_change_186 [label=cause]
+  build_189 -> patch_verification_187 [label=cause]
+  build_189 -> code_review_188 [label=cause]
+  test_B_190 -> build_189 [label=cause]
+  artifact_191 -> build_189 [label=cause]
+  confidence_level_192 -> test_B_190 [label=cause]
+  confidence_level_192 -> artifact_191 [label=subject]
+}
+
+strict digraph {
+  code_change_193 [time=1445086068000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_194 [time=1445087274000,type=patch_verification,status=passed]
+  code_review_195 [time=1445087810000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_196 [time=1445090709000,type=build,status=passed]
+  patch_verification_194 -> code_change_193 [label=cause]
+  code_review_195 -> code_change_193 [label=cause]
+  build_196 -> patch_verification_194 [label=cause]
+  build_196 -> code_review_195 [label=cause]
+}
+
+strict digraph {
+  code_change_197 [time=1445093534000,type=code_change,contributor="Gudrun Schyman"]
+}
+
+strict digraph {
+  code_change_198 [time=1445095952000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_199 [time=1445095986000,type=patch_verification,status=passed]
+  code_review_200 [time=1445096127000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_201 [time=1445096620000,type=build,status=passed]
+  patch_verification_199 -> code_change_198 [label=cause]
+  code_review_200 -> code_change_198 [label=cause]
+  build_201 -> patch_verification_199 [label=cause]
+  build_201 -> code_review_200 [label=cause]
+}
+
+strict digraph {
+  code_change_202 [time=1445096679000,type=code_change,contributor="Pelle Flöjt"]
+  code_review_203 [time=1445098160000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_204 [time=1445099376000,type=build,status=passed]
+  test_A_205 [time=1445101380000,type=test_A,status=passed]
+  test_B_206 [time=1445102652000,type=test_B,status=passed]
+  artifact_207 [time=1445105907000,type=artifact]
+  confidence_level_208 [time=1445108939000,type=confidence_level,value=0.9212685341292591]
+  code_review_203 -> code_change_202 [label=cause]
+  build_204 -> code_review_203 [label=cause]
+  test_A_205 -> build_204 [label=cause]
+  test_B_206 -> build_204 [label=cause]
+  artifact_207 -> build_204 [label=cause]
+  confidence_level_208 -> test_A_205 [label=cause]
+  confidence_level_208 -> test_B_206 [label=cause]
+  confidence_level_208 -> artifact_207 [label=subject]
+}
+
+strict digraph {
+  code_change_209 [time=1445110997000,type=code_change,contributor="Erik Broberg"]
+}
+
+strict digraph {
+  code_change_210 [time=1445111456000,type=code_change,contributor="Karl-Bertil Jonsson"]
+}
+
+strict digraph {
+  code_change_211 [time=1445111778000,type=code_change,contributor="Kalle Anka"]
+}
+
+strict digraph {
+  code_change_212 [time=1445112105000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_213 [time=1445115059000,type=patch_verification,status=passed]
+  code_review_214 [time=1445118324000,type=code_review,reviewer="Erik Broberg",status=passed]
+  build_215 [time=1445120368000,type=build,status=passed]
+  test_A_216 [time=1445120455000,type=test_A,status=passed]
+  test_B_217 [time=1445122481000,type=test_B,status=passed]
+  artifact_218 [time=1445125897000,type=artifact]
+  confidence_level_219 [time=1445127557000,type=confidence_level,value=0.38749202252530834]
+  patch_verification_213 -> code_change_212 [label=cause]
+  code_review_214 -> code_change_212 [label=cause]
+  build_215 -> patch_verification_213 [label=cause]
+  build_215 -> code_review_214 [label=cause]
+  test_A_216 -> build_215 [label=cause]
+  test_B_217 -> build_215 [label=cause]
+  artifact_218 -> build_215 [label=cause]
+  confidence_level_219 -> test_A_216 [label=cause]
+  confidence_level_219 -> test_B_217 [label=cause]
+  confidence_level_219 -> artifact_218 [label=subject]
+}
+
+strict digraph {
+  code_change_220 [time=1445130536000,type=code_change,contributor="Zlatan Ibrahimović"]
+  code_review_221 [time=1445132764000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  build_222 [time=1445134523000,type=build,status=passed]
+  test_A_223 [time=1445134595000,type=test_A,status=passed]
+  test_B_224 [time=1445137357000,type=test_B,status=passed]
+  artifact_225 [time=1445138865000,type=artifact]
+  confidence_level_226 [time=1445139240000,type=confidence_level,value=0.48972093877618295]
+  test_C_227 [time=1445139787000,type=test_C,status=passed]
+  test_D_228 [time=1445142537000,type=test_D,status=passed]
+  code_review_221 -> code_change_220 [label=cause]
+  build_222 -> code_review_221 [label=cause]
+  test_A_223 -> build_222 [label=cause]
+  test_B_224 -> build_222 [label=cause]
+  artifact_225 -> build_222 [label=cause]
+  confidence_level_226 -> test_A_223 [label=cause]
+  confidence_level_226 -> test_B_224 [label=cause]
+  confidence_level_226 -> artifact_225 [label=subject]
+  test_C_227 -> confidence_level_226 [label=cause]
+  test_D_228 -> confidence_level_226 [label=cause]
+}
+
+strict digraph {
+  code_change_229 [time=1445145719000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_230 [time=1445145930000,type=patch_verification,status=failed]
+  code_review_231 [time=1445145953000,type=code_review,reviewer="Erik Broberg",status=passed]
+  patch_verification_230 -> code_change_229 [label=cause]
+  code_review_231 -> code_change_229 [label=cause]
+}
+
+strict digraph {
+  code_change_232 [time=1445148467000,type=code_change,contributor="Stånk-Tommy"]
+}
+
+strict digraph {
+  code_change_233 [time=1445151914000,type=code_change,contributor="Mark Zuckerberg"]
+}
+
+strict digraph {
+  code_change_234 [time=1445155251000,type=code_change,contributor="Kalle Anka"]
+}
+
+strict digraph {
+  code_change_235 [time=1445156089000,type=code_change,contributor=Beethoven]
+  patch_verification_236 [time=1445158469000,type=patch_verification,status=passed]
+  code_review_237 [time=1445161674000,type=code_review,reviewer="Zlatan Ibrahimović",status=failed]
+  patch_verification_236 -> code_change_235 [label=cause]
+  code_review_237 -> code_change_235 [label=cause]
+}
+
+strict digraph {
+  code_change_238 [time=1445162955000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_239 [time=1445163724000,type=patch_verification,status=failed]
+  code_review_240 [time=1445167025000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  patch_verification_239 -> code_change_238 [label=cause]
+  code_review_240 -> code_change_238 [label=cause]
+}
+
+strict digraph {
+  code_change_241 [time=1445168490000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_242 [time=1445171138000,type=patch_verification,status=passed]
+  code_review_243 [time=1445173183000,type=code_review,reviewer="Kalle Anka",status=failed]
+  patch_verification_242 -> code_change_241 [label=cause]
+  code_review_243 -> code_change_241 [label=cause]
+}
+
+strict digraph {
+  code_change_244 [time=1445176193000,type=code_change,contributor="Mark Zuckerberg"]
+}
+
+strict digraph {
+  code_change_245 [time=1445178413000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_246 [time=1445181752000,type=patch_verification,status=passed]
+  code_review_247 [time=1445184910000,type=code_review,reviewer=Beethoven,status=passed]
+  build_248 [time=1445188244000,type=build,status=passed]
+  test_A_249 [time=1445188988000,type=test_A,status=passed]
+  test_B_250 [time=1445191270000,type=test_B,status=passed]
+  artifact_251 [time=1445192546000,type=artifact]
+  confidence_level_252 [time=1445195198000,type=confidence_level,value=0.6964490378673771]
+  test_C_253 [time=1445198029000,type=test_C,status=passed]
+  test_D_254 [time=1445198323000,type=test_D,status=passed]
+  patch_verification_246 -> code_change_245 [label=cause]
+  code_review_247 -> code_change_245 [label=cause]
+  build_248 -> patch_verification_246 [label=cause]
+  build_248 -> code_review_247 [label=cause]
+  test_A_249 -> build_248 [label=cause]
+  test_B_250 -> build_248 [label=cause]
+  artifact_251 -> build_248 [label=cause]
+  confidence_level_252 -> test_A_249 [label=cause]
+  confidence_level_252 -> test_B_250 [label=cause]
+  confidence_level_252 -> artifact_251 [label=subject]
+  test_C_253 -> confidence_level_252 [label=cause]
+  test_D_254 -> confidence_level_252 [label=cause]
+}
+
+strict digraph {
+  code_change_255 [time=1445199321000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_256 [time=1445202115000,type=patch_verification,status=failed]
+  code_review_257 [time=1445202406000,type=code_review,reviewer="Kalle Anka",status=passed]
+  patch_verification_256 -> code_change_255 [label=cause]
+  code_review_257 -> code_change_255 [label=cause]
+}
+
+strict digraph {
+  code_change_258 [time=1445205660000,type=code_change,contributor="Mark Zuckerberg"]
+}
+
+strict digraph {
+  code_change_259 [time=1445206110000,type=code_change,contributor=Beethoven]
+  patch_verification_260 [time=1445209269000,type=patch_verification,status=passed]
+  code_review_261 [time=1445210491000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_262 [time=1445213765000,type=build,status=passed]
+  test_B_263 [time=1445213946000,type=test_B,status=passed]
+  artifact_264 [time=1445216384000,type=artifact]
+  confidence_level_265 [time=1445217038000,type=confidence_level,value=0.4083692430357204]
+  patch_verification_260 -> code_change_259 [label=cause]
+  code_review_261 -> code_change_259 [label=cause]
+  build_262 -> patch_verification_260 [label=cause]
+  build_262 -> code_review_261 [label=cause]
+  test_B_263 -> build_262 [label=cause]
+  artifact_264 -> build_262 [label=cause]
+  confidence_level_265 -> test_B_263 [label=cause]
+  confidence_level_265 -> artifact_264 [label=subject]
+}
+
+strict digraph {
+  code_change_266 [time=1445218864000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_267 [time=1445219396000,type=patch_verification,status=failed]
+  code_review_268 [time=1445221714000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  patch_verification_267 -> code_change_266 [label=cause]
+  code_review_268 -> code_change_266 [label=cause]
+}
+
+strict digraph {
+  code_change_269 [time=1445225313000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_270 [time=1445227923000,type=patch_verification,status=passed]
+  code_review_271 [time=1445228171000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  build_272 [time=1445231146000,type=build,status=passed]
+  test_A_273 [time=1445233268000,type=test_A,status=passed]
+  test_B_274 [time=1445233692000,type=test_B,status=passed]
+  artifact_275 [time=1445234335000,type=artifact]
+  confidence_level_276 [time=1445236242000,type=confidence_level,value=0.9980135125966451]
+  test_C_277 [time=1445239648000,type=test_C,status=passed]
+  test_D_278 [time=1445242814000,type=test_D,status=passed]
+  patch_verification_270 -> code_change_269 [label=cause]
+  code_review_271 -> code_change_269 [label=cause]
+  build_272 -> patch_verification_270 [label=cause]
+  build_272 -> code_review_271 [label=cause]
+  test_A_273 -> build_272 [label=cause]
+  test_B_274 -> build_272 [label=cause]
+  artifact_275 -> build_272 [label=cause]
+  confidence_level_276 -> test_A_273 [label=cause]
+  confidence_level_276 -> test_B_274 [label=cause]
+  confidence_level_276 -> artifact_275 [label=subject]
+  test_C_277 -> confidence_level_276 [label=cause]
+  test_D_278 -> confidence_level_276 [label=cause]
+}
+
+strict digraph {
+  code_change_279 [time=1445243570000,type=code_change,contributor="Clas Ohlson"]
+  code_review_280 [time=1445245676000,type=code_review,reviewer="Ola Leifler",status=failed]
+  code_review_280 -> code_change_279 [label=cause]
+}
+
+strict digraph {
+  code_change_281 [time=1445247232000,type=code_change,contributor="Clas Ohlson"]
+}
+
+strict digraph {
+  code_change_282 [time=1445248328000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_283 [time=1445249691000,type=patch_verification,status=passed]
+  code_review_284 [time=1445252453000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_285 [time=1445253726000,type=build,status=passed]
+  test_B_286 [time=1445254715000,type=test_B,status=passed]
+  artifact_287 [time=1445255706000,type=artifact]
+  confidence_level_288 [time=1445258308000,type=confidence_level,value=0.8726641249937667]
+  test_C_289 [time=1445260706000,type=test_C,status=passed]
+  test_D_290 [time=1445262128000,type=test_D,status=passed]
+  patch_verification_283 -> code_change_282 [label=cause]
+  code_review_284 -> code_change_282 [label=cause]
+  build_285 -> patch_verification_283 [label=cause]
+  build_285 -> code_review_284 [label=cause]
+  test_B_286 -> build_285 [label=cause]
+  artifact_287 -> build_285 [label=cause]
+  confidence_level_288 -> test_B_286 [label=cause]
+  confidence_level_288 -> artifact_287 [label=subject]
+  test_C_289 -> confidence_level_288 [label=cause]
+  test_D_290 -> confidence_level_288 [label=cause]
+}
+
+strict digraph {
+  code_change_291 [time=1445265291000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_292 [time=1445266966000,type=patch_verification,status=passed]
+  code_review_293 [time=1445270188000,type=code_review,reviewer="Zlatan Ibrahimović",status=failed]
+  patch_verification_292 -> code_change_291 [label=cause]
+  code_review_293 -> code_change_291 [label=cause]
+}
+
+strict digraph {
+  code_change_294 [time=1445271242000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_295 [time=1445273136000,type=patch_verification,status=passed]
+  code_review_296 [time=1445275808000,type=code_review,reviewer="Pelle Flöjt",status=passed]
+  build_297 [time=1445276534000,type=build,status=passed]
+  patch_verification_295 -> code_change_294 [label=cause]
+  code_review_296 -> code_change_294 [label=cause]
+  build_297 -> patch_verification_295 [label=cause]
+  build_297 -> code_review_296 [label=cause]
+}
+
+strict digraph {
+  code_change_298 [time=1445276561000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_299 [time=1445277903000,type=patch_verification,status=passed]
+  code_review_300 [time=1445280515000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_301 [time=1445283440000,type=build,status=passed]
+  test_A_302 [time=1445284022000,type=test_A,status=passed]
+  test_B_303 [time=1445287192000,type=test_B,status=passed]
+  artifact_304 [time=1445288700000,type=artifact]
+  confidence_level_305 [time=1445291707000,type=confidence_level,value=0.9863456779207715]
+  patch_verification_299 -> code_change_298 [label=cause]
+  code_review_300 -> code_change_298 [label=cause]
+  build_301 -> patch_verification_299 [label=cause]
+  build_301 -> code_review_300 [label=cause]
+  test_A_302 -> build_301 [label=cause]
+  test_B_303 -> build_301 [label=cause]
+  artifact_304 -> build_301 [label=cause]
+  confidence_level_305 -> test_A_302 [label=cause]
+  confidence_level_305 -> test_B_303 [label=cause]
+  confidence_level_305 -> artifact_304 [label=subject]
+}
+
+strict digraph {
+  code_change_306 [time=1445294023000,type=code_change,contributor=Beethoven]
+  patch_verification_307 [time=1445294161000,type=patch_verification,status=passed]
+  build_308 [time=1445294695000,type=build,status=passed]
+  test_A_309 [time=1445295377000,type=test_A,status=passed]
+  test_B_310 [time=1445298266000,type=test_B,status=passed]
+  artifact_311 [time=1445299486000,type=artifact]
+  confidence_level_312 [time=1445300185000,type=confidence_level,value=0.35838145014258527]
+  test_C_313 [time=1445300331000,type=test_C,status=passed]
+  test_D_314 [time=1445302243000,type=test_D,status=passed]
+  patch_verification_307 -> code_change_306 [label=cause]
+  build_308 -> patch_verification_307 [label=cause]
+  test_A_309 -> build_308 [label=cause]
+  test_B_310 -> build_308 [label=cause]
+  artifact_311 -> build_308 [label=cause]
+  confidence_level_312 -> test_A_309 [label=cause]
+  confidence_level_312 -> test_B_310 [label=cause]
+  confidence_level_312 -> artifact_311 [label=subject]
+  test_C_313 -> confidence_level_312 [label=cause]
+  test_D_314 -> confidence_level_312 [label=cause]
+}
+
+strict digraph {
+  code_change_315 [time=1445305421000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_316 [time=1445306391000,type=patch_verification,status=passed]
+  code_review_317 [time=1445307501000,type=code_review,reviewer="Clas Ohlson",status=passed]
+  build_318 [time=1445310223000,type=build,status=passed]
+  test_A_319 [time=1445311794000,type=test_A,status=passed]
+  test_B_320 [time=1445313503000,type=test_B,status=passed]
+  artifact_321 [time=1445315710000,type=artifact]
+  confidence_level_322 [time=1445318121000,type=confidence_level,value=0.710422714530546]
+  patch_verification_316 -> code_change_315 [label=cause]
+  code_review_317 -> code_change_315 [label=cause]
+  build_318 -> patch_verification_316 [label=cause]
+  build_318 -> code_review_317 [label=cause]
+  test_A_319 -> build_318 [label=cause]
+  test_B_320 -> build_318 [label=cause]
+  artifact_321 -> build_318 [label=cause]
+  confidence_level_322 -> test_A_319 [label=cause]
+  confidence_level_322 -> test_B_320 [label=cause]
+  confidence_level_322 -> artifact_321 [label=subject]
+}
+
+strict digraph {
+  code_change_323 [time=1445318844000,type=code_change,contributor="Gudrun Schyman"]
+  patch_verification_324 [time=1445320273000,type=patch_verification,status=passed]
+  build_325 [time=1445323300000,type=build,status=passed]
+  test_A_326 [time=1445326614000,type=test_A,status=passed]
+  test_B_327 [time=1445328807000,type=test_B,status=passed]
+  artifact_328 [time=1445332176000,type=artifact]
+  confidence_level_329 [time=1445332493000,type=confidence_level,value=0.9068353615708313]
+  test_C_330 [time=1445333738000,type=test_C,status=failed]
+  test_D_331 [time=1445334457000,type=test_D,status=passed]
+  patch_verification_324 -> code_change_323 [label=cause]
+  build_325 -> patch_verification_324 [label=cause]
+  test_A_326 -> build_325 [label=cause]
+  test_B_327 -> build_325 [label=cause]
+  artifact_328 -> build_325 [label=cause]
+  confidence_level_329 -> test_A_326 [label=cause]
+  confidence_level_329 -> test_B_327 [label=cause]
+  confidence_level_329 -> artifact_328 [label=subject]
+  test_C_330 -> confidence_level_329 [label=cause]
+  test_D_331 -> confidence_level_329 [label=cause]
+}
+
+strict digraph {
+  code_change_332 [time=1445336996000,type=code_change,contributor="Erik Broberg"]
+}
+
+strict digraph {
+  code_change_333 [time=1445337927000,type=code_change,contributor="Stånk-Tommy"]
+}
+
+strict digraph {
+  code_change_334 [time=1445338321000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_335 [time=1445338580000,type=patch_verification,status=passed]
+  code_review_336 [time=1445339620000,type=code_review,reviewer="Pelle Flöjt",status=passed]
+  build_337 [time=1445343122000,type=build,status=passed]
+  test_A_338 [time=1445345388000,type=test_A,status=passed]
+  test_B_339 [time=1445348198000,type=test_B,status=passed]
+  artifact_340 [time=1445349551000,type=artifact]
+  confidence_level_341 [time=1445349590000,type=confidence_level,value=0.5176542608948496]
+  test_C_342 [time=1445350456000,type=test_C,status=passed]
+  test_D_343 [time=1445353820000,type=test_D,status=passed]
+  patch_verification_335 -> code_change_334 [label=cause]
+  code_review_336 -> code_change_334 [label=cause]
+  build_337 -> patch_verification_335 [label=cause]
+  build_337 -> code_review_336 [label=cause]
+  test_A_338 -> build_337 [label=cause]
+  test_B_339 -> build_337 [label=cause]
+  artifact_340 -> build_337 [label=cause]
+  confidence_level_341 -> test_A_338 [label=cause]
+  confidence_level_341 -> test_B_339 [label=cause]
+  confidence_level_341 -> artifact_340 [label=subject]
+  test_C_342 -> confidence_level_341 [label=cause]
+  test_D_343 -> confidence_level_341 [label=cause]
+}
+
+strict digraph {
+  code_change_344 [time=1445356913000,type=code_change,contributor="Karl-Bertil Jonsson"]
+}
+
+strict digraph {
+  code_change_345 [time=1445358503000,type=code_change,contributor=Beethoven]
+  patch_verification_346 [time=1445361368000,type=patch_verification,status=failed]
+  code_review_347 [time=1445363782000,type=code_review,reviewer="Erik Broberg",status=passed]
+  patch_verification_346 -> code_change_345 [label=cause]
+  code_review_347 -> code_change_345 [label=cause]
+}
+
+strict digraph {
+  code_change_348 [time=1445366314000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_349 [time=1445366636000,type=patch_verification,status=passed]
+  code_review_350 [time=1445368279000,type=code_review,reviewer="Pelle Flöjt",status=passed]
+  build_351 [time=1445370596000,type=build,status=passed]
+  test_A_352 [time=1445373650000,type=test_A,status=passed]
+  test_B_353 [time=1445375126000,type=test_B,status=passed]
+  artifact_354 [time=1445377792000,type=artifact]
+  confidence_level_355 [time=1445378820000,type=confidence_level,value=0.37741317496775706]
+  patch_verification_349 -> code_change_348 [label=cause]
+  code_review_350 -> code_change_348 [label=cause]
+  build_351 -> patch_verification_349 [label=cause]
+  build_351 -> code_review_350 [label=cause]
+  test_A_352 -> build_351 [label=cause]
+  test_B_353 -> build_351 [label=cause]
+  artifact_354 -> build_351 [label=cause]
+  confidence_level_355 -> test_A_352 [label=cause]
+  confidence_level_355 -> test_B_353 [label=cause]
+  confidence_level_355 -> artifact_354 [label=subject]
+}
+
+strict digraph {
+  code_change_356 [time=1445381679000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_357 [time=1445383948000,type=patch_verification,status=passed]
+  code_review_358 [time=1445384653000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_359 [time=1445385940000,type=build,status=passed]
+  test_A_360 [time=1445388702000,type=test_A,status=passed]
+  artifact_361 [time=1445391206000,type=artifact]
+  confidence_level_362 [time=1445393705000,type=confidence_level,value=0.8396354083708832]
+  test_C_363 [time=1445394131000,type=test_C,status=passed]
+  test_D_364 [time=1445394728000,type=test_D,status=passed]
+  patch_verification_357 -> code_change_356 [label=cause]
+  code_review_358 -> code_change_356 [label=cause]
+  build_359 -> patch_verification_357 [label=cause]
+  build_359 -> code_review_358 [label=cause]
+  test_A_360 -> build_359 [label=cause]
+  artifact_361 -> build_359 [label=cause]
+  confidence_level_362 -> test_A_360 [label=cause]
+  confidence_level_362 -> artifact_361 [label=subject]
+  test_C_363 -> confidence_level_362 [label=cause]
+  test_D_364 -> confidence_level_362 [label=cause]
+}
+
+strict digraph {
+  code_change_365 [time=1445397010000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_366 [time=1445399537000,type=patch_verification,status=passed]
+  code_review_367 [time=1445400663000,type=code_review,reviewer="Kalle Anka",status=passed]
+  build_368 [time=1445403894000,type=build,status=passed]
+  patch_verification_366 -> code_change_365 [label=cause]
+  code_review_367 -> code_change_365 [label=cause]
+  build_368 -> patch_verification_366 [label=cause]
+  build_368 -> code_review_367 [label=cause]
+}
+
+strict digraph {
+  code_change_369 [time=1445404851000,type=code_change,contributor="Mark Zuckerberg"]
+  patch_verification_370 [time=1445405843000,type=patch_verification,status=passed]
+  code_review_371 [time=1445408052000,type=code_review,reviewer="Ola Leifler",status=passed]
+  build_372 [time=1445411258000,type=build,status=passed]
+  test_A_373 [time=1445412578000,type=test_A,status=passed]
+  test_B_374 [time=1445413729000,type=test_B,status=passed]
+  artifact_375 [time=1445417119000,type=artifact]
+  confidence_level_376 [time=1445420063000,type=confidence_level,value=0.795997516470555]
+  test_C_377 [time=1445420254000,type=test_C,status=passed]
+  test_D_378 [time=1445422168000,type=test_D,status=passed]
+  patch_verification_370 -> code_change_369 [label=cause]
+  code_review_371 -> code_change_369 [label=cause]
+  build_372 -> patch_verification_370 [label=cause]
+  build_372 -> code_review_371 [label=cause]
+  test_A_373 -> build_372 [label=cause]
+  test_B_374 -> build_372 [label=cause]
+  artifact_375 -> build_372 [label=cause]
+  confidence_level_376 -> test_A_373 [label=cause]
+  confidence_level_376 -> test_B_374 [label=cause]
+  confidence_level_376 -> artifact_375 [label=subject]
+  test_C_377 -> confidence_level_376 [label=cause]
+  test_D_378 -> confidence_level_376 [label=cause]
+}
+
+strict digraph {
+  code_change_379 [time=1445422486000,type=code_change,contributor="Pelle Flöjt"]
+  patch_verification_380 [time=1445424535000,type=patch_verification,status=passed]
+  code_review_381 [time=1445426293000,type=code_review,reviewer="Ola Leifler",status=passed]
+  build_382 [time=1445426930000,type=build,status=passed]
+  test_A_383 [time=1445428300000,type=test_A,status=passed]
+  test_B_384 [time=1445429551000,type=test_B,status=passed]
+  artifact_385 [time=1445429716000,type=artifact]
+  confidence_level_386 [time=1445432613000,type=confidence_level,value=0.8291058982575321]
+  patch_verification_380 -> code_change_379 [label=cause]
+  code_review_381 -> code_change_379 [label=cause]
+  build_382 -> patch_verification_380 [label=cause]
+  build_382 -> code_review_381 [label=cause]
+  test_A_383 -> build_382 [label=cause]
+  test_B_384 -> build_382 [label=cause]
+  artifact_385 -> build_382 [label=cause]
+  confidence_level_386 -> test_A_383 [label=cause]
+  confidence_level_386 -> test_B_384 [label=cause]
+  confidence_level_386 -> artifact_385 [label=subject]
+}
+
+strict digraph {
+  code_change_387 [time=1445436099000,type=code_change,contributor=Beethoven]
+  patch_verification_388 [time=1445438110000,type=patch_verification,status=passed]
+  code_review_389 [time=1445439441000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_390 [time=1445441556000,type=build,status=passed]
+  test_A_391 [time=1445443129000,type=test_A,status=passed]
+  test_B_392 [time=1445444774000,type=test_B,status=passed]
+  artifact_393 [time=1445446743000,type=artifact]
+  confidence_level_394 [time=1445449393000,type=confidence_level,value=0.9999131401267026]
+  patch_verification_388 -> code_change_387 [label=cause]
+  code_review_389 -> code_change_387 [label=cause]
+  build_390 -> patch_verification_388 [label=cause]
+  build_390 -> code_review_389 [label=cause]
+  test_A_391 -> build_390 [label=cause]
+  test_B_392 -> build_390 [label=cause]
+  artifact_393 -> build_390 [label=cause]
+  confidence_level_394 -> test_A_391 [label=cause]
+  confidence_level_394 -> test_B_392 [label=cause]
+  confidence_level_394 -> artifact_393 [label=subject]
+}
+
+strict digraph {
+  code_change_395 [time=1445450034000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_396 [time=1445450633000,type=patch_verification,status=passed]
+  code_review_397 [time=1445453780000,type=code_review,reviewer="Gudrun Schyman",status=passed]
+  build_398 [time=1445457146000,type=build,status=passed]
+  test_A_399 [time=1445457736000,type=test_A,status=passed]
+  artifact_400 [time=1445458552000,type=artifact]
+  confidence_level_401 [time=1445460596000,type=confidence_level,value=0.9209483314212726]
+  test_C_402 [time=1445463273000,type=test_C,status=passed]
+  test_D_403 [time=1445464377000,type=test_D,status=passed]
+  patch_verification_396 -> code_change_395 [label=cause]
+  code_review_397 -> code_change_395 [label=cause]
+  build_398 -> patch_verification_396 [label=cause]
+  build_398 -> code_review_397 [label=cause]
+  test_A_399 -> build_398 [label=cause]
+  artifact_400 -> build_398 [label=cause]
+  confidence_level_401 -> test_A_399 [label=cause]
+  confidence_level_401 -> artifact_400 [label=subject]
+  test_C_402 -> confidence_level_401 [label=cause]
+  test_D_403 -> confidence_level_401 [label=cause]
+}
+
+strict digraph {
+  code_change_404 [time=1445467505000,type=code_change,contributor="Stånk-Tommy"]
+  patch_verification_405 [time=1445468741000,type=patch_verification,status=passed]
+  code_review_406 [time=1445470490000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_407 [time=1445472898000,type=build,status=passed]
+  test_B_408 [time=1445473039000,type=test_B,status=failed]
+  artifact_409 [time=1445474754000,type=artifact]
+  patch_verification_405 -> code_change_404 [label=cause]
+  code_review_406 -> code_change_404 [label=cause]
+  build_407 -> patch_verification_405 [label=cause]
+  build_407 -> code_review_406 [label=cause]
+  test_B_408 -> build_407 [label=cause]
+  artifact_409 -> build_407 [label=cause]
+}
+
+strict digraph {
+  code_change_410 [time=1445476142000,type=code_change,contributor="Ola Leifler"]
+}
+
+strict digraph {
+  code_change_411 [time=1445478173000,type=code_change,contributor="Gudrun Schyman"]
+}
+
+strict digraph {
+  code_change_412 [time=1445478361000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_413 [time=1445478590000,type=patch_verification,status=passed]
+  code_review_414 [time=1445479845000,type=code_review,reviewer="Zlatan Ibrahimović",status=passed]
+  build_415 [time=1445480438000,type=build,status=passed]
+  test_A_416 [time=1445482377000,type=test_A,status=passed]
+  test_B_417 [time=1445484161000,type=test_B,status=passed]
+  artifact_418 [time=1445484764000,type=artifact]
+  confidence_level_419 [time=1445487177000,type=confidence_level,value=0.8373545549640831]
+  test_C_420 [time=1445488832000,type=test_C,status=passed]
+  test_D_421 [time=1445490965000,type=test_D,status=passed]
+  patch_verification_413 -> code_change_412 [label=cause]
+  code_review_414 -> code_change_412 [label=cause]
+  build_415 -> patch_verification_413 [label=cause]
+  build_415 -> code_review_414 [label=cause]
+  test_A_416 -> build_415 [label=cause]
+  test_B_417 -> build_415 [label=cause]
+  artifact_418 -> build_415 [label=cause]
+  confidence_level_419 -> test_A_416 [label=cause]
+  confidence_level_419 -> test_B_417 [label=cause]
+  confidence_level_419 -> artifact_418 [label=subject]
+  test_C_420 -> confidence_level_419 [label=cause]
+  test_D_421 -> confidence_level_419 [label=cause]
+}
+
+strict digraph {
+  code_change_422 [time=1445492112000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_423 [time=1445493853000,type=patch_verification,status=passed]
+  code_review_424 [time=1445496602000,type=code_review,reviewer="Zlatan Ibrahimović",status=failed]
+  patch_verification_423 -> code_change_422 [label=cause]
+  code_review_424 -> code_change_422 [label=cause]
+}
+
+strict digraph {
+  code_change_425 [time=1445498666000,type=code_change,contributor="Karl-Bertil Jonsson"]
+}
+
+strict digraph {
+  code_change_426 [time=1445500812000,type=code_change,contributor="Clas Ohlson"]
+  patch_verification_427 [time=1445501918000,type=patch_verification,status=passed]
+  code_review_428 [time=1445504054000,type=code_review,reviewer="Erik Broberg",status=passed]
+  build_429 [time=1445504721000,type=build,status=passed]
+  test_A_430 [time=1445504759000,type=test_A,status=passed]
+  test_B_431 [time=1445505063000,type=test_B,status=passed]
+  artifact_432 [time=1445507958000,type=artifact]
+  confidence_level_433 [time=1445511335000,type=confidence_level,value=0.32077412753215295]
+  test_C_434 [time=1445513124000,type=test_C,status=passed]
+  test_D_435 [time=1445514209000,type=test_D,status=passed]
+  patch_verification_427 -> code_change_426 [label=cause]
+  code_review_428 -> code_change_426 [label=cause]
+  build_429 -> patch_verification_427 [label=cause]
+  build_429 -> code_review_428 [label=cause]
+  test_A_430 -> build_429 [label=cause]
+  test_B_431 -> build_429 [label=cause]
+  artifact_432 -> build_429 [label=cause]
+  confidence_level_433 -> test_A_430 [label=cause]
+  confidence_level_433 -> test_B_431 [label=cause]
+  confidence_level_433 -> artifact_432 [label=subject]
+  test_C_434 -> confidence_level_433 [label=cause]
+  test_D_435 -> confidence_level_433 [label=cause]
+}
+
+strict digraph {
+  code_change_436 [time=1445515298000,type=code_change,contributor="Ola Leifler"]
+  patch_verification_437 [time=1445515893000,type=patch_verification,status=passed]
+  code_review_438 [time=1445518227000,type=code_review,reviewer="Mark Zuckerberg",status=passed]
+  build_439 [time=1445520076000,type=build,status=passed]
+  test_A_440 [time=1445521117000,type=test_A,status=passed]
+  test_B_441 [time=1445522303000,type=test_B,status=passed]
+  artifact_442 [time=1445525891000,type=artifact]
+  confidence_level_443 [time=1445529462000,type=confidence_level,value=0.5326621974780188]
+  test_C_444 [time=1445532707000,type=test_C,status=passed]
+  test_D_445 [time=1445534974000,type=test_D,status=passed]
+  patch_verification_437 -> code_change_436 [label=cause]
+  code_review_438 -> code_change_436 [label=cause]
+  build_439 -> patch_verification_437 [label=cause]
+  build_439 -> code_review_438 [label=cause]
+  test_A_440 -> build_439 [label=cause]
+  test_B_441 -> build_439 [label=cause]
+  artifact_442 -> build_439 [label=cause]
+  confidence_level_443 -> test_A_440 [label=cause]
+  confidence_level_443 -> test_B_441 [label=cause]
+  confidence_level_443 -> artifact_442 [label=subject]
+  test_C_444 -> confidence_level_443 [label=cause]
+  test_D_445 -> confidence_level_443 [label=cause]
+}
+
+strict digraph {
+  code_change_446 [time=1445535687000,type=code_change,contributor=Beethoven]
+  patch_verification_447 [time=1445539033000,type=patch_verification,status=passed]
+  code_review_448 [time=1445540093000,type=code_review,reviewer="Stånk-Tommy",status=passed]
+  build_449 [time=1445543543000,type=build,status=passed]
+  test_A_450 [time=1445545617000,type=test_A,status=passed]
+  artifact_451 [time=1445548074000,type=artifact]
+  confidence_level_452 [time=1445549919000,type=confidence_level,value=0.4815609724939999]
+  patch_verification_447 -> code_change_446 [label=cause]
+  code_review_448 -> code_change_446 [label=cause]
+  build_449 -> patch_verification_447 [label=cause]
+  build_449 -> code_review_448 [label=cause]
+  test_A_450 -> build_449 [label=cause]
+  artifact_451 -> build_449 [label=cause]
+  confidence_level_452 -> test_A_450 [label=cause]
+  confidence_level_452 -> artifact_451 [label=subject]
+}
+
+strict digraph {
+  code_change_453 [time=1445550239000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_454 [time=1445550496000,type=patch_verification,status=passed]
+  code_review_455 [time=1445550860000,type=code_review,reviewer="Mark Zuckerberg",status=passed]
+  build_456 [time=1445552580000,type=build,status=passed]
+  test_A_457 [time=1445556067000,type=test_A,status=passed]
+  test_B_458 [time=1445559344000,type=test_B,status=passed]
+  artifact_459 [time=1445560220000,type=artifact]
+  confidence_level_460 [time=1445560362000,type=confidence_level,value=0.3926067420620102]
+  test_C_461 [time=1445561323000,type=test_C,status=passed]
+  test_D_462 [time=1445562262000,type=test_D,status=passed]
+  patch_verification_454 -> code_change_453 [label=cause]
+  code_review_455 -> code_change_453 [label=cause]
+  build_456 -> patch_verification_454 [label=cause]
+  build_456 -> code_review_455 [label=cause]
+  test_A_457 -> build_456 [label=cause]
+  test_B_458 -> build_456 [label=cause]
+  artifact_459 -> build_456 [label=cause]
+  confidence_level_460 -> test_A_457 [label=cause]
+  confidence_level_460 -> test_B_458 [label=cause]
+  confidence_level_460 -> artifact_459 [label=subject]
+  test_C_461 -> confidence_level_460 [label=cause]
+  test_D_462 -> confidence_level_460 [label=cause]
+}
+
+strict digraph {
+  code_change_463 [time=1445564817000,type=code_change,contributor="Erik Broberg"]
+}
+
+strict digraph {
+  code_change_464 [time=1445567533000,type=code_change,contributor="Kalle Anka"]
+}
+
+strict digraph {
+  code_change_465 [time=1445570324000,type=code_change,contributor="Erik Broberg"]
+  patch_verification_466 [time=1445570644000,type=patch_verification,status=passed]
+  build_467 [time=1445571033000,type=build,status=passed]
+  test_A_468 [time=1445571972000,type=test_A,status=passed]
+  test_B_469 [time=1445573547000,type=test_B,status=passed]
+  artifact_470 [time=1445574596000,type=artifact]
+  confidence_level_471 [time=1445576327000,type=confidence_level,value=0.21157547625577944]
+  patch_verification_466 -> code_change_465 [label=cause]
+  build_467 -> patch_verification_466 [label=cause]
+  test_A_468 -> build_467 [label=cause]
+  test_B_469 -> build_467 [label=cause]
+  artifact_470 -> build_467 [label=cause]
+  confidence_level_471 -> test_A_468 [label=cause]
+  confidence_level_471 -> test_B_469 [label=cause]
+  confidence_level_471 -> artifact_470 [label=subject]
+}
+
+strict digraph {
+  code_change_472 [time=1445578489000,type=code_change,contributor="Gudrun Schyman"]
+}
+
+strict digraph {
+  code_change_473 [time=1445579124000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_474 [time=1445582296000,type=patch_verification,status=passed]
+  code_review_475 [time=1445585463000,type=code_review,reviewer="Ola Leifler",status=passed]
+  build_476 [time=1445586573000,type=build,status=passed]
+  test_A_477 [time=1445586940000,type=test_A,status=passed]
+  test_B_478 [time=1445587396000,type=test_B,status=passed]
+  artifact_479 [time=1445588833000,type=artifact]
+  confidence_level_480 [time=1445589434000,type=confidence_level,value=0.18009364320256027]
+  test_C_481 [time=1445591719000,type=test_C,status=passed]
+  test_D_482 [time=1445594524000,type=test_D,status=passed]
+  patch_verification_474 -> code_change_473 [label=cause]
+  code_review_475 -> code_change_473 [label=cause]
+  build_476 -> patch_verification_474 [label=cause]
+  build_476 -> code_review_475 [label=cause]
+  test_A_477 -> build_476 [label=cause]
+  test_B_478 -> build_476 [label=cause]
+  artifact_479 -> build_476 [label=cause]
+  confidence_level_480 -> test_A_477 [label=cause]
+  confidence_level_480 -> test_B_478 [label=cause]
+  confidence_level_480 -> artifact_479 [label=subject]
+  test_C_481 -> confidence_level_480 [label=cause]
+  test_D_482 -> confidence_level_480 [label=cause]
+}
+
+strict digraph {
+  code_change_483 [time=1445596513000,type=code_change,contributor="Zlatan Ibrahimović"]
+  patch_verification_484 [time=1445597034000,type=patch_verification,status=passed]
+  code_review_485 [time=1445598998000,type=code_review,reviewer="Karl-Bertil Jonsson",status=passed]
+  build_486 [time=1445601270000,type=build,status=passed]
+  test_A_487 [time=1445603673000,type=test_A,status=failed]
+  artifact_488 [time=1445605386000,type=artifact]
+  patch_verification_484 -> code_change_483 [label=cause]
+  code_review_485 -> code_change_483 [label=cause]
+  build_486 -> patch_verification_484 [label=cause]
+  build_486 -> code_review_485 [label=cause]
+  test_A_487 -> build_486 [label=cause]
+  artifact_488 -> build_486 [label=cause]
+}
+
+strict digraph {
+  code_change_489 [time=1445608628000,type=code_change,contributor="Karl-Bertil Jonsson"]
+}
+
+strict digraph {
+  code_change_490 [time=1445610663000,type=code_change,contributor="Mark Zuckerberg"]
+}
+
+strict digraph {
+  code_change_491 [time=1445613436000,type=code_change,contributor="Kalle Anka"]
+  patch_verification_492 [time=1445613811000,type=patch_verification,status=passed]
+  code_review_493 [time=1445615925000,type=code_review,reviewer="Pelle Flöjt",status=passed]
+  build_494 [time=1445618545000,type=build,status=passed]
+  test_A_495 [time=1445621646000,type=test_A,status=failed]
+  artifact_496 [time=1445623309000,type=artifact]
+  patch_verification_492 -> code_change_491 [label=cause]
+  code_review_493 -> code_change_491 [label=cause]
+  build_494 -> patch_verification_492 [label=cause]
+  build_494 -> code_review_493 [label=cause]
+  test_A_495 -> build_494 [label=cause]
+  artifact_496 -> build_494 [label=cause]
+}
+
+strict digraph {
+  code_change_497 [time=1445626307000,type=code_change,contributor="Ola Leifler"]
+}
+
+strict digraph {
+  code_change_498 [time=1445626375000,type=code_change,contributor="Clas Ohlson"]
+}
+
+strict digraph {
+  code_change_499 [time=1445627755000,type=code_change,contributor="Karl-Bertil Jonsson"]
+  patch_verification_500 [time=1445630123000,type=patch_verification,status=passed]
+  code_review_501 [time=1445632384000,type=code_review,reviewer="Erik Broberg",status=passed]
+  build_502 [time=1445635710000,type=build,status=passed]
+  test_A_503 [time=1445636130000,type=test_A,status=passed]
+  test_B_504 [time=1445636199000,type=test_B,status=passed]
+  artifact_505 [time=1445637071000,type=artifact]
+  confidence_level_506 [time=1445640197000,type=confidence_level,value=0.8591011152128825]
+  patch_verification_500 -> code_change_499 [label=cause]
+  code_review_501 -> code_change_499 [label=cause]
+  build_502 -> patch_verification_500 [label=cause]
+  build_502 -> code_review_501 [label=cause]
+  test_A_503 -> build_502 [label=cause]
+  test_B_504 -> build_502 [label=cause]
+  artifact_505 -> build_502 [label=cause]
+  confidence_level_506 -> test_A_503 [label=cause]
+  confidence_level_506 -> test_B_504 [label=cause]
+  confidence_level_506 -> artifact_505 [label=subject]
+}
+

@@ -1,5 +1,11 @@
 svg {
   overflow: hidden;
+  display: block;
+}
+
+#search-field{
+  margin: 20px;
+  margin-left: 0px;
 }
 
 text {
@@ -14,7 +20,7 @@ g.node{
 
 .node rect, .node ellipse, .node diamond, .node circle{
   stroke: #333;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
   fill: #fff;
 }
 

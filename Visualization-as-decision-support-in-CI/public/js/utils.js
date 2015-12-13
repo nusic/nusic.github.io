@@ -1,3 +1,8 @@
+
+/*
+ * Power up the Date prototype with some toString functions
+ */
+
 function _pad(n, size){
 	return ('00000' + n).slice(-size);
 }
@@ -22,3 +27,33 @@ Date.prototype.getWeek = function() {
     var onejan = new Date(this.getFullYear(), 0, 1);
     return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
 } 
+
+
+/*
+ * Power up the array prototype
+ */
+Array.prototype.getUnique = function(){
+   var u = {}, a = [];
+   for(var i = 0, l = this.length; i < l; ++i){
+      if(u.hasOwnProperty(this[i])) {
+         continue;
+      }
+      a.push(this[i]);
+      u[this[i]] = 1;
+   }
+   return a;
+}
+
+
+
+
+/*
+ * Helper function for Graphs
+ */
+var Graph = graphlibDot.graphlib.Graph;
+
+Graph.prototype.getDeveloper = function() {
+	var codeChangeId = this.nodes()[0];
+	var codeChangeData = this.node(codeChangeId);
+	return codeChangeData.contributor;
+};

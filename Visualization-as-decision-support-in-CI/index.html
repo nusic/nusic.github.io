@@ -14,19 +14,44 @@
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 	<!-- custom -->
-	<script src="public/js/show_all/show_all_main.js"></script>
+	<script src="public/js/show_all/DeveloperFlowExtractor.js"></script>
 	<script src="public/js/show_all/Decorator.js"></script>
+	<script src="public/js/show_all/show_all_main.js"></script>
+
+	<script src="public/js/ClientCIGraph.js"></script>
+	<script src="public/js/show_aggregation/Aggregator.js"></script>
 	<script src="public/js/utils.js"></script>
+
 </head>
 
-<body>
+<body ng-app>
 	<h2>Visualization as decision support in CI</h2>
 	<h3>
 		Some generated graphs
 		[<a href="aggregation.html">view aggregation</a>]
 	</h3>
-	<div id="graph-container">
+	<div id="search-field">
+		<span>Show </span>
 
+		<select id="select-method">
+			<option>code changes</option>
+			<option>integration</option>
+		</select>
+
+		<span> from </span>
+		<select id="select-developer">
+			<option>All</option>
+		</select>
+
+		<p>Show <strong>code changes</strong> - Shows code changes and the activities directly caused by those</p>
+		<p>Show <strong>integration</strong> - Shows code changes and the first occurency of each activity executed thereafter. 
+		<strong>OBS! includes false cause nodes</strong>
+		</p>
+	</div>
+
+
+	<div id="graph-container">
+	Loading graphs... 
 	</div>
 	<p id="graph-text"></p>
 </body>
