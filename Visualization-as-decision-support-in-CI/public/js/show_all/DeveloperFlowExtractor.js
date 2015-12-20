@@ -21,7 +21,7 @@ DeveloperFlowExtractor.prototype.code_changes = function(graphs, developerName) 
 	});
 };
 
-DeveloperFlowExtractor.prototype.integration = function(graphs, developerName) {
+DeveloperFlowExtractor.prototype.first_occurrence = function(graphs, developerName) {
 	var firstNodeUnions = [];
 	var graphSequenceSlices = [];
 

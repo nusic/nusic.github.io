@@ -22,20 +22,25 @@ Aggregator.prototype.unionOf = function(graphs, aggregationMethod){
 	var unionNodeMap = {};
 
 	for (var i = 0; i < graphs.length; i++) {
+		var graphIndex = graphs[i].graphIndex;
 		var graphNodes = graphs[i].nodes();
 		for (var j = 0; j < graphNodes.length; j++) {
 			var nodeName = graphNodes[j];
 			var nodeData = graphs[i].node(nodeName);
+
+			nodeData.graphIndex = graphIndex;
 			nodeData.nodeIndex = j;
 
 			// If aggregationMethod was provided as argument, use that,
 			// else use aggregation method based on node type
+
 			var nodeAggregationMethod = aggregationMethod || this.aggregationMethodMap[nodeData.type];
 			try{
 				this[nodeAggregationMethod](unionNodeMap, nodeData);
 			}
 			catch(e){
-				console.log(nodeData.type)
+				console.error(e);
+				console.log(nodeAggregationMethod);
 			}
 		};
 	}

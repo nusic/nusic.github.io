@@ -1,6 +1,7 @@
 svg {
   overflow: hidden;
   display: block;
+  padding: 5px;
 }
 
 #search-field{
@@ -34,6 +35,9 @@ g.node{
   stroke-width: 1.5px;
 }
 
+.edge-invisible{
+  stroke-width: 0px;
+}
 
 #graph-text{
 	font-family: monospace;
@@ -41,4 +45,31 @@ g.node{
 
 .timelineSeries_passed{
   fill: #f99;
+}
+
+.indirect{
+  cursor: pointer;
+}
+
+.edge-message{
+  position: relative;
+}
+
+#timeline1{
+  margin-bottom: 50px;
+}
+
+/* time line line plot */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+path.line { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
 }

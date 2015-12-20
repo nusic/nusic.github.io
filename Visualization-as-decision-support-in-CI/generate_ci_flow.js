@@ -9,6 +9,7 @@ var fs = require('fs');
 var graphlib = require("graphlib");
 var dot = require('graphlib-dot');
 
+var CITemplatedGraphFactory = require('./src/CITemplatedGraphFactory.js').CITemplatedGraphFactory;
 var CIGraphFactory = require('./src/CIGraphFactory.js').CIGraphFactory;
 var CINodeFactory = require('./src/CINodeFactory.js').CINodeFactory;
 
@@ -23,14 +24,24 @@ var testExecutionProbability = testExecutionProbabilityIndex ? parseFloat(proces
 var manyToOneProbabilityIndex = process.argv.indexOf('-m')+1;
 var manyToOneProbability = manyToOneProbabilityIndex ? parseFloat(process.argv[manyToOneProbabilityIndex]) : 1;
 
+var templateFileNameIndex = process.argv.indexOf('-template')+1;
+var templateFileName = process.argv[templateFileNameIndex];
+
+console.log('templateFileName: ' + templateFileName);
+
+// Init Graph factory
+var ciGraphFactory;
+if(templateFileName){
+	ciGraphFactory = new CITemplatedGraphFactory(templateFileName, new CINodeFactory());	
+}
+else{
+	ciGraphFactory = new CIGraphFactory(new CINodeFactory());
+}
+
 
 // Create graph
-var ciGraphFactory = new CIGraphFactory(new CINodeFactory());
 var graphs = ciGraphFactory.create(numGraphs, testExecutionProbability, manyToOneProbability);
 
-for (var i = 0; i < graphs.length; i++) {
-	//console.log(i, graphs[i].nodes().length);
-};
 
 
 // if not '--none' was specified, output the graph

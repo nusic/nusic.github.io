@@ -1,18 +1,32 @@
-
-
 var AggregatedGraphDecorator = function(){
 	this.numAggregatedGraphs = null;
 }
 
-AggregatedGraphDecorator.prototype.decorate = function(g){
+AggregatedGraphDecorator.prototype.decorate = function(g, selectedNode){
+
 	this.numAggregatedGraphs = g.numAggregatedGraphs;
 	var thisDecorator = this;
+
 	g.nodes().forEach(function (id){
-    	var node = g.node(id);
+		var node = g.node(id);
 		thisDecorator.decorateNode(node);
+		if(id === selectedNode){
+			thisDecorator.styleSelectedNode(node);
+		}
 	});
+
+	g.graph().rankdir = "RL";
+	g.graph().ranksep = 30;
+	g.graph().nodesep = 15;
+
 	this.numAggregatedGraphs = null;
 }
+
+AggregatedGraphDecorator.prototype.styleSelectedNode = function(node) {
+	node.style += 'stroke: #f00;'
+	node.style += 'stroke-width: 3px;'
+	//node.style += 'stroke-dasharray: 10, 5;';
+};
 
 
 
@@ -83,7 +97,7 @@ function decorateTransparencyAndBorder(node, color, t){
 		gap: 50*(1-t)*(1-t)*(1-t)
 	};
 
-	node.style+= 'stroke-dasharray: ' + borderDash.length + ' ' + borderDash.gap + ';';
+	//node.style+= 'stroke-dasharray: ' + borderDash.length + ' ' + borderDash.gap + ';';
 }
 
 

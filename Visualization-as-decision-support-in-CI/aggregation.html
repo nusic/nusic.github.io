@@ -28,7 +28,7 @@
 	<script src="public/js/show_aggregation/show_aggregation_main.js"></script>
 	<script src="public/js/show_aggregation/AggregatedGraphDecorator.js"></script>
 	<script src="public/js/show_aggregation/Aggregator.js"></script>
-	<script src="public/js/show_aggregation/NodeClickHandler.js"></script>
+	<script src="public/js/show_aggregation/TimeLineHandler.js"></script>
 	<script src="public/js/utils.js"></script>
 </head>
 
@@ -39,31 +39,25 @@
 		[<a href="index.html">view all</a>]
 	</h3>
 	<div id="time-range">
-	    <p>Time Range: 
-	    	<span class="slider-time"></span>
-	    		 - 
-    		 <span class="slider-time2">Loading data ...</span>
-		 </p>
-	    <div class="sliders_step1">
-	        <div id="slider-range"></div>
-	    </div>
+		<p>Time Range:
+			<span class="slider-time"></span>
+				 -
+			<span class="slider-time2">Loading data ...</span>
+		</p>
+		<div class="sliders_step1">
+			Mid:
+			<div id="slider-time-window"></div>
+			Range:
+			<div id="slider-time-range"></div>
+		</div>
 	</div>
-
+	<div id="timeline1"></div>
 
 	<div id="graph-container">
 		<svg id="graph-svg">
 			<g>
 		</svg>
 	</div>
-	<div id="timeline1">
-
-	</div>
-	<br />
-	<div id="event-timeline">
-		
-	</div>
-	
-	
 	<p id="graph-text"></p>
 </body>
 

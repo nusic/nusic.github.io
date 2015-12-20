@@ -155,7 +155,6 @@
     };
 
     function timeline (gParent) {
-      console.log('gParent:', gParent);
       var g = gParent.append("g");
       var gParentSize = gParent[0][0].getBoundingClientRect();
 

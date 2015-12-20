@@ -16,9 +16,9 @@
 	<!-- custom -->
 	<script src="public/js/show_all/DeveloperFlowExtractor.js"></script>
 	<script src="public/js/show_all/Decorator.js"></script>
+	<script src="public/js/show_all/ShowDeltaClickHandler.js"></script>
 	<script src="public/js/show_all/show_all_main.js"></script>
 
-	<script src="public/js/ClientCIGraph.js"></script>
 	<script src="public/js/show_aggregation/Aggregator.js"></script>
 	<script src="public/js/utils.js"></script>
 
@@ -35,20 +35,18 @@
 
 		<select id="select-method">
 			<option>code changes</option>
-			<option>integration</option>
+			<option>first occurrence</option>
 		</select>
 
 		<span> from </span>
-		<select id="select-developer">
-			<option>All</option>
-		</select>
-
+		<select id="select-developer"></select>
 		<p>Show <strong>code changes</strong> - Shows code changes and the activities directly caused by those</p>
-		<p>Show <strong>integration</strong> - Shows code changes and the first occurency of each activity executed thereafter. 
-		<strong>OBS! includes false cause nodes</strong>
+		<p>Show <strong>first occurrence</strong> - Shows code changes and the first occurrence of each activity executed thereafter. 
 		</p>
 	</div>
-
+	<br>
+	<hr>
+	<br>
 
 	<div id="graph-container">
 	Loading graphs... 

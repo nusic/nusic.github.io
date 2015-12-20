@@ -7,14 +7,20 @@ window.onload = function() {
   var renderer = new dagreD3.render();
   var decorator = new Decorator();
   var devFlowExtractor = new DeveloperFlowExtractor(new Aggregator());
+
   var graphs = undefined;
 
   var timeouts = [];
 
   $.ajax({
-    url: "data/test100_M_to_1.dot"
+    //url: "data/test100_M_to_1.dot"
+    url: "data/test100templated.dot"
   }).done(function (data) {
     graphs = graphlibDot.readMany(data);
+
+    for (var i = 0; i < graphs.length; i++) {
+      graphs[i].graphIndex = i;
+    };
 
     populateSelectElement(graphs);
 
@@ -54,10 +60,6 @@ window.onload = function() {
         g.id = 'graph' + index;
         $graphContainer.append( '<svg id="'+ g.id +'"><g></svg>' );
 
-        g.graph().rankdir = "RL";
-        g.graph().ranksep = 30;
-        g.graph().nodesep = 15;
-
         render(g);
       };
 
@@ -71,6 +73,7 @@ window.onload = function() {
       return graph.getDeveloper();
     })
     .getUnique()
+    .concat('All')
     .forEach(function (uniqueDeveloper){
       $devSelect.append($('<option>', {
         text: uniqueDeveloper
@@ -92,6 +95,17 @@ window.onload = function() {
     var bbox = svg.getBBox();
     svg.style.width = bbox.width + 40.0 + "px";
     svg.style.height = bbox.height + 40.0 + "px";
+
+    // Add click listeners
+    var showDeltaClickHandler = new ShowDeltaClickHandler(inner[0][0].parentNode);
+    showDeltaClickHandler.setGraphs(graphs);
+    showDeltaClickHandler.setGraph(g);
+    inner.selectAll('g.edgePath.indirect').on('click', function (edge){
+      showDeltaClickHandler.onEdgeClick(edge);
+    });
+    inner.selectAll('g.node').on('click', function (node){
+      showDeltaClickHandler.onNodeClick(node);
+    });
   }
  
 }
