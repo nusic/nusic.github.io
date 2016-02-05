@@ -28,6 +28,7 @@ Aggregator.prototype.unionOf = function(graphs, aggregationMethod){
 			var nodeName = graphNodes[j];
 			var nodeData = graphs[i].node(nodeName);
 
+			nodeData.id = nodeName;
 			nodeData.graphIndex = graphIndex;
 			nodeData.nodeIndex = j;
 

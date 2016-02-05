@@ -72,6 +72,26 @@ CITemplatedGraphFactory.prototype.createOne = function() {
 		}
 	};
 
+	var createdNodes = g.nodes();
+	var lastNode = createdNodes[createdNodes.length-1];
+	var firstNode = createdNodes[0];
+	var dijkstraFromLastNode = graphlib.alg.dijkstra(g, lastNode);
+
+	// If distance from last node to first node was Inf (i.e not reachable)
+	// Remove all nodes that were reachable from last node, re-calculate dijkstra
+	// and keep doing this until the first node is reachable from the last node.
+	while(dijkstraFromLastNode[firstNode].distance === Infinity){
+		for (var i = 1; i < createdNodes.length; i++) {
+			var tmpNode = createdNodes[i];
+			if(dijkstraFromLastNode[tmpNode].distance !== Infinity){
+				g.removeNode(tmpNode);
+			}
+		};
+		createdNodes = g.nodes();
+		lastNode = createdNodes[createdNodes.length-1];
+		dijkstraFromLastNode = graphlib.alg.dijkstra(g, lastNode);
+	}
+
 	return g;
 };
 

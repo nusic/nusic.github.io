@@ -10,7 +10,7 @@ Decorator.prototype.decorate = function(g){
 
 	g.nodes().forEach(function (nodeId){
 		var node = g.node(nodeId);
-		node.id = nodeId;
+		node.id = node.id || nodeId;
 		thisDecorator.decorateNode(node);
 	});
 
@@ -68,25 +68,23 @@ Decorator.prototype.decorateNode = function(node) {
 };
 
 Decorator.prototype.decorateEdge = function(edge, srcNode, dstNode) {
-	edge.style = '';
-	//console.log(srcNode.graphIndex + '->' + dstNode.graphIndex);
+	//console.log(srcNode.type + ' ' + srcNode.graphIndex + ' -> ' + dstNode.type + ' ' + dstNode.graphIndex);
+
+	edge.label = edge.type;
+	edge.class = ' ';
+	edge.labelStyle = ' ';
 
 	if(srcNode.graphIndex !== dstNode.graphIndex){
 		edge.labelStyle = 'font-style: italic;'
 
 		if(srcNode.graphIndex < dstNode.graphIndex){
-			edge.style += 'stroke: none; fill: none; stroke-dasharray: 5, 5;';
-			//edge.label = edge.label[0] === '(' ? edge.label : '(' + edge.label + ')';
-			edge.label = '';
+			edge.label = '          ';
 			edge.class = 'edge-invisible';
 		}
 		else{
-			edge.style += 'stroke: #00f; fill: transparent; stroke-dasharray: 5, 5;';
-			//edge.label = edge.label[0] === '(' ? edge.label : '(' + edge.label + ')';
 			edge.label = 'indirect';
 			edge.class = 'indirect';
 		}
-		//console.log(srcNode.graphIndex, '->', dstNode.graphIndex);
 	}
 };
 

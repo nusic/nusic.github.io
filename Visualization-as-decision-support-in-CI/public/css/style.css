@@ -37,6 +37,9 @@ g.node{
 
 .edge-invisible{
   stroke-width: 0px;
+  stroke: none; 
+  fill: none; 
+  stroke-dasharray: 5, 5;
 }
 
 #graph-text{
@@ -49,6 +52,9 @@ g.node{
 
 .indirect{
   cursor: pointer;
+  stroke: #00f; 
+  fill: #00f;
+  stroke-dasharray: 5, 5;
 }
 
 .edge-message{

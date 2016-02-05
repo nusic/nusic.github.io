@@ -15,6 +15,11 @@ AggregatedGraphDecorator.prototype.decorate = function(g, selectedNode){
 		}
 	});
 
+	g.edges().forEach(function(edge){
+		var edgeData = g.edge(edge);
+		edgeData.label = edgeData.type;
+	});
+
 	g.graph().rankdir = "RL";
 	g.graph().ranksep = 30;
 	g.graph().nodesep = 15;

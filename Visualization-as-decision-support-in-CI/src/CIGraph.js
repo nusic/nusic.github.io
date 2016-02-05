@@ -54,7 +54,7 @@ Graph.prototype.append = function(edgeType, nodeTypes, index) {
 	for (var i = 0; i < nodeTypes.length; i++) {
 		var node = this.nodeFactory.create(nodeTypes[i]);
 		this.setNode(node.id, node.data);
-		this.setEdge(node.id, nodeToPointTo, {label: edgeType});
+		this.setEdge(node.id, nodeToPointTo, {type: edgeType});
 	};
 
 	return this;
@@ -99,7 +99,7 @@ Graph.prototype.createEdgeTo = function(edgeType, indices) {
 	var fromNode = this.lastNodeOrAt();
 	for (var i = 0; i < indices.length; i++) {
 		var toNode = this.lastNodeOrAt(indices[i]);
-		this.setEdge(fromNode, toNode, {label: edgeType});
+		this.setEdge(fromNode, toNode, {type: edgeType});
 	};
 
 	return this;

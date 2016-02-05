@@ -22,6 +22,9 @@ DeveloperFlowExtractor.prototype.code_changes = function(graphs, developerName) 
 };
 
 DeveloperFlowExtractor.prototype.first_occurrence = function(graphs, developerName) {
+	// Deep copy of graph
+	//var graphs2 = $.extend(true, {}, graphs);
+
 	var firstNodeUnions = [];
 	var graphSequenceSlices = [];
 

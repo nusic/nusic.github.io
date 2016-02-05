@@ -79,3 +79,25 @@ Graph.prototype.getFirstWith = function(property, value) {
 	};
 	return null;
 };
+
+Graph.prototype.deepCopy = function() {
+	var g = new dagreD3.graphlib.Graph();
+
+	var nodes = this.nodes();
+	for (var i = 0; i < nodes.length; i++) {
+		var node = nodes[i];
+		var nodeData = this.node(node);
+		var nodeDataCopy = $.extend(true, {}, nodeData);
+		g.setNode(node[i], nodeDataCopy);
+	};
+
+	var edges = this.edges();
+	for (var i = 0; i < edges.length; i++) {
+		var edge = edges[i];
+		var edgeData = this.edge(edge);
+		var edgeDataCopy = $.extend(true, {}, edgeData);
+		g.setEdge(edge.v, edge.w, edgeDataCopy);
+	};
+
+	return g;
+};

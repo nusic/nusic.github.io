@@ -25,7 +25,7 @@ var manyToOneProbabilityIndex = process.argv.indexOf('-m')+1;
 var manyToOneProbability = manyToOneProbabilityIndex ? parseFloat(process.argv[manyToOneProbabilityIndex]) : 1;
 
 var templateFileNameIndex = process.argv.indexOf('-template')+1;
-var templateFileName = process.argv[templateFileNameIndex];
+var templateFileName = templateFileNameIndex ? process.argv[templateFileNameIndex] : null;
 
 console.log('templateFileName: ' + templateFileName);
 
@@ -38,10 +38,8 @@ else{
 	ciGraphFactory = new CIGraphFactory(new CINodeFactory());
 }
 
-
 // Create graph
 var graphs = ciGraphFactory.create(numGraphs, testExecutionProbability, manyToOneProbability);
-
 
 
 // if not '--none' was specified, output the graph
