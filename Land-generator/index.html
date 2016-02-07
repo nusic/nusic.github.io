@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Prucedural land piece</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		
+		<!-- jQuery -->
+		<script src="lib/jquery-2.1.4.min.js"></script>
+		<script src="lib/jquery-ui-1.11.3.min.js"></script>
+		
+		<!-- THREE -->
+		<script src="vendor/three.js/Three.js"></script>
+		<script src="vendor/three.js/Detector.js"></script>
+		<!-- https://github.com/mrdoob/stats.js -->
+		<script src="vendor/three.js/Stats.js"></script>
+
+		<script src="vendor/threex/THREEx.screenshot.js"></script>
+		<script src="vendor/threex/THREEx.FullScreen.js"></script>
+		<script src="vendor/threex/THREEx.WindowResize.js"></script>
+		<script src="vendor/threex.dragpancontrols.js"></script>
+		<!--<script src="js/FirstPersonControls.js"></script>-->
+
+		<script src="lib/OrbitControls.js"></script>
+		
+
+		<!-- -->
+		<script src="js/noise.js"></script>
+		<script src="js/kdtree.js"></script>
+		<script src="js/regression.js"></script>
+
+		<!-- Custom js -->
+		<script src="js/utils.js"></script>
+		<script src="js/ProceduralWorldFactory.js"></script>
+		<script src="js/ProceduralGroundFactory.js"></script>
+		<script src="js/ProceduralWaterFactory.js"></script>
+		<script src="js/ProceduralShoreApplier.js"></script>
+		<script src="js/ProceduralGroundColorApplier.js"></script>
+		<script src="js/ProceduralSurroundingFactory.js"></script>
+		<script src="js/ProceduralRoadNetworkFactory.js"></script>
+		<script src="js/ProceduralBuildingFactory.js"></script>
+		<script src="js/ProceduralTreeFactory.js"></script>
+
+		<script src="js/UserControls.js"></script>
+
+		<link  href="css/main.css" rel="stylesheet"/>
+	</head>
+<body>
+	<div id="controls">
+
+	</div>
+
+    <span id="user-message">a</span>
+
+
+	<!-- three.js container -->
+    <div id="container"></div>
+
+
+	<!-- info on screen display -->
+	<div id="info">
+		<div class="bottom" id="inlineDoc" >
+			- <i>p</i> for screenshot
+		</div>
+	</div> 
+
+	<script type="text/javascript">
+		var stats, scene, renderer;
+		var camera, cameraControl;
+		var rayCaster;
+
+		var userControls;
+		var worldFactory;
+		var marker;
+		var persistentObjects = new THREE.Object3D();
+
+
+		if( init() ) {
+			renderLoop();
+		}
+
+		// init the scene
+		function init(){
+
+			// Init WebGL renderer 
+			if(Detector.webgl ){
+				renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true });
+			}else{
+				Detector.addGetWebGLMessage();
+				return false;
+			}
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setClearColor(0x000000);
+			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.getElementById('container').appendChild(renderer.domElement);
+
+
+			// Init user controls
+			var userControlsDiv = $('#controls')[0];
+			userControls = new UserControls(userControlsDiv);
+
+
+			// Add Stats.js - https://github.com/mrdoob/stats.js
+			stats = new Stats();
+			stats.domElement.style.position = 'absolute';
+			stats.domElement.style.bottom = '0px';
+			document.body.appendChild( stats.domElement );
+
+
+
+			/////////////////////////////
+			// Create Procedural Scene //
+			/////////////////////////////
+			var controls = userControls.getControls();
+			worldFactory = new ProceduralWorldFactory({ x:1000, y: 1000});
+			worldFactory.createAndSetScene(controls);
+
+
+			// Create raycaster
+			raycaster = new THREE.Raycaster();
+			mouse = new THREE.Vector2();
+			//document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+			document.getElementById('container').addEventListener( 'mousedown', onMouseDown, false );
+			document.getElementById('container').addEventListener( 'mousemove', onMouseMove, false );
+
+
+			// create a camera control
+			cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
+
+
+			// transparently support window resize
+			THREEx.WindowResize.bind(renderer, camera);
+
+
+			// allow 'p' to make screenshot
+			THREEx.Screenshot.bindKey(renderer);
+
+
+			// allow 'f' to go fullscreen where this feature is supported
+			if( THREEx.FullScreen.available() ){
+				THREEx.FullScreen.bindKey();		
+				document.getElementById('inlineDoc').innerHTML	+= "- <i>f</i> for fullscreen";
+			}
+
+			return true; // Ready to render
+		}
+
+		function rebuildScene(rebuildFrom){
+			var controls = userControls.getControls();
+			//console.log('user controls:', controls);
+			worldFactory.createAndSetScene(controls, rebuildFrom);
+		}
+
+		// animation loop
+		function renderLoop() {
+			requestAnimationFrame( renderLoop );
+			cameraControls.update();
+			renderer.render( scene, camera );
+			stats.update();
+		}
+
+		function onMouseDown(event){
+			event.preventDefault();
+			if(event.shiftKey){
+				scene.add(marker.clone());
+			}
+		}
+
+		function onMouseMove(event){
+			event.preventDefault();
+
+			mouse.set( ( event.layerX / window.innerWidth ) * 2 - 1, - ( event.layerY / window.innerHeight ) * 2 + 1 );
+			raycaster.setFromCamera( mouse, camera );
+
+			var intersects = raycaster.intersectObjects([ scene.children[3] ]);
+			if ( intersects.length > 0 && event.shiftKey) {
+				var intersect = intersects[ 0 ];
+
+				if(!marker){
+					marker = createMarker()
+				}
+				marker.position.x = intersect.point.x;
+				marker.position.y = intersect.point.y;
+				marker.position.z = intersect.point.z;
+				scene.add(marker);
+			}
+			else{
+				scene.remove(marker);
+			}
+		}
+
+		function createMarker(){
+			console.log('creating marker');
+			var markerGeometry = new THREE.SphereGeometry(30, 4, 4);
+			var markerMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, shininess: 0} );
+			var markerMesh = new THREE.Mesh(markerGeometry, markerMaterial);
+
+			return markerMesh;
+		}
+	</script>
+</body>
+</html>
