@@ -45,7 +45,7 @@ ProceduralTreeFactory.prototype.getTreeMesh = function(controls, pos) {
 
 ProceduralTreeFactory.prototype.create = function(controls) {
 	var treeMeshGroup = new THREE.Object3D();
-	if(controls.dirtyBuild) {
+	if(controls.dirtyBuild || !controls.trees) {
 		return treeMeshGroup;
 	}
 
@@ -61,7 +61,7 @@ ProceduralTreeFactory.prototype.create = function(controls) {
 	var distance = norm2;
 
 	var treeTree = new kdTree([], distance, ['x', 'y']);
-	var integrity = 10/controls.modelScale;
+	var integrity = (10/controls.modelScale)/(0.1 + controls.trees);
 	var integrity2 = 2*integrity*integrity;
 
 	//for (var i = 0; i < groundMesh.geometry.vertices.length; i++) {
@@ -70,8 +70,11 @@ ProceduralTreeFactory.prototype.create = function(controls) {
 		var v = groundMesh.geometry.vertices[face.a];
 
 		if(v.z - worldFlatHeight < 0) continue;
+
+		var greenRedDiff = face.color.g - face.color.r;
+		if(greenRedDiff < 0.1) continue;
 		
-		var closeTrees = treeTree.nearest(v, 1, integrity2);
+		var closeTrees = treeTree.nearest(v, 1, integrity2 / (0.1 + 5*greenRedDiff));
 		if(closeTrees.length) continue;
 
 		if(controls.buildingsData){
@@ -79,9 +82,6 @@ ProceduralTreeFactory.prototype.create = function(controls) {
 			if(closeBuilding.length) continue;
 		}
 			
-		var greenRedDiff = face.color.g - face.color.r;
-		if(greenRedDiff < 0.1) continue;
-
 
 		treeTree.insert(v);
 		var treeMesh = this.getTreeMesh(controls, v);

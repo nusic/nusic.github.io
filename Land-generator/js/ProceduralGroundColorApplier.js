@@ -44,7 +44,7 @@ ProceduralGroundColorApplier.prototype.create = function(controls) {
 	for (var faceIndex = 0; faceIndex < groundMesh.geometry.faces.length; faceIndex++) {
 		var vc = groundMesh.geometry.faces[faceIndex].vertexColors = [];
 	}
-	console.log(controls);
+	
 	// Set a color to each faces' vertices
 	for (var faceIndex = 0; faceIndex < groundMesh.geometry.faces.length; faceIndex++) {
 		var face = groundMesh.geometry.faces[faceIndex];

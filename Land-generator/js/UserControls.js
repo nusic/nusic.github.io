@@ -17,6 +17,7 @@ UserControls.prototype.init = function() {
 		{inputType: 'slider', name: 'flat', value: 0.2},
 		{inputType: 'slider', name: 'shore', value: 0.13, display: 'none'},
 		{inputType: 'slider', name: 'cityness', value: 0.24, rebuildFrom: 'roads'},
+		{inputType: 'slider', name: 'trees', value: true, rebuildFrom: 'trees'},
 	];
 
 	for (var i = 0; i < controlsAndDefaults.length; i++) {
@@ -48,7 +49,9 @@ UserControls.prototype.createDefualtInput = function(name, value, display) {
 	var self = this;
 	$inputElement.change(function(event){
 		var rebuildFrom = self.rebuildFromMap[event.target.id];
-		rebuildScene(rebuildFrom);
+		var controls = self.getControls();
+		//rebuildScene(rebuildFrom);
+		worldFactory.createAndSetScene(controls, rebuildFrom);
 	});
 	
 	$(this.domElement).append($labelElement);

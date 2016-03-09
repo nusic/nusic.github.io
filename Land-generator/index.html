@@ -146,11 +146,6 @@
 			return true; // Ready to render
 		}
 
-		function rebuildScene(rebuildFrom){
-			var controls = userControls.getControls();
-			//console.log('user controls:', controls);
-			worldFactory.createAndSetScene(controls, rebuildFrom);
-		}
 
 		// animation loop
 		function renderLoop() {

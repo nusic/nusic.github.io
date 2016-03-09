@@ -1,14 +1,20 @@
 function ProceduralBuildingFactory (label) {
 	this.label = label;
-	this.numBuildings = 0;
 
-	// Create a cube geometry
+	// Create a cube geometry with 12 vertices (i.e 4 extra vertices)
+	// constructor arguments: size in xyz is 1, 1, 1
+	//                        number of segments along xyz axis is 1, 1, 2 
 	this.houseBaseGeometry = new THREE.CubeGeometry(1, 1, 1, 1, 1, 2);
 
 	// side 1   side 2   top     
 	// +-+-+    +---+   +---+
 	// |   |    |   |   +   +
 	// +-+-+    +---+   +---+  
+	//    
+	// ^ X      ^ Y     ^ Z  
+	// |        |       |    
+	// +-->Z    +-->X   +-->X
+
 
 	// And displace two vertices so that we get a simple house base geometry
 	this.houseBaseGeometry.vertices[1].y += 0.25;
@@ -30,11 +36,6 @@ function ProceduralBuildingFactory (label) {
 	]
 }
 
-ProceduralBuildingFactory.prototype.getBuildingMaterial = function() {
-	return this.buildingMaterials[this.numBuildings % this.buildingMaterials.length];
-};
-
-
 
 ProceduralBuildingFactory.prototype.createBuilding = function(controls, pos) {
 	
@@ -43,7 +44,7 @@ ProceduralBuildingFactory.prototype.createBuilding = function(controls, pos) {
 	var numMats = this.buildingMaterials.length;
 	var materialIndex = Math.floor((1+noise.simplex2(5*coords.u, 5*coords.v + 43)) * numMats / 2);
 	
-	var material = this.getBuildingMaterial();
+	var material = this.buildingMaterials[materialIndex]; //this.getBuildingMaterial();
 	var buildingMesh = new THREE.Mesh(this.houseBaseGeometry, material);
 	
 
@@ -61,12 +62,10 @@ ProceduralBuildingFactory.prototype.createBuilding = function(controls, pos) {
 	buildingMesh.scale[axisToScale] *= 1.5;
 	buildingGroup.add(buildingMesh);
 
-	this.numBuildings++;
 	return buildingGroup;
 };
 
 ProceduralBuildingFactory.prototype.create = function(controls) {
-	this.numBuildings = 0;
 	var buildingMeshGroup = new THREE.Object3D();
 
 	if(controls.dirtyBuild || !controls.roadsData) {
