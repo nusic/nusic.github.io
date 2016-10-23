@@ -1,0 +1,114 @@
+body{
+	padding-top: 50px;	
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	/*
+	color: #aaa;
+	background-color: black;
+	*/
+}
+a{
+	text-decoration: none;
+	color: #cc33aa;
+}
+a:hover {
+	text-decoration: none;
+	color: #eeaacc;	
+}
+#main{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.borderless, .borderless td, .borderless th, .borderless th{
+	border: none;
+	outline: none;
+}
+
+table{
+	outline: none;
+	border: none;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.time-col{
+
+}
+
+h1{
+	font-size: 55px;
+	font-weight: 600;
+}
+
+#name{
+	font-size: 15vw;
+}
+
+h1,h2{
+	margin-bottom: 20px;
+}
+
+h2{
+	padding-top: 40px;
+}
+
+h3{
+	font-size: 20px;
+}
+
+.row{
+	padding-top: 5px;
+}
+
+
+small{
+	font-size: 14px;
+}
+
+
+#profile{
+	width: 100%;
+	padding: 0px;
+	padding-bottom: 10px;
+	margin: 0px;
+}
+.profile{
+	height: 220px;
+	padding: 0px;
+	padding-bottom: 10px;
+	margin: 0px;
+}
+
+.description{
+	display: block;
+}
+
+.readmore{
+	display: block;
+	margin-top: 10px;
+}
+
+.tags{
+	font-style: italic;
+	display: block;
+	margin-top: 10px;
+}
+
+.location{
+	white-space: nowrap;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.myitem{
+	margin-bottom: 25px;
+}
+
+img.logo{
+	height: 100px;
+	padding-bottom: 20px;
+}
