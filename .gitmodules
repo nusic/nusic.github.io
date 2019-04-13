@@ -1,0 +1,3 @@
+[submodule "visual-memory"]
+	path = visual-memory
+	url = git@github.com:nusic/visual-memory.git
